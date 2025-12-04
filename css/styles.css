@@ -4349,11 +4349,35 @@ h1 {
     font-size: 0.85em;
   }
 
-  /* Ocultar texto, solo iconos */
-  .btn-back-catalog span:not(.cart-badge-detail),
-  .btn-cart-detail span:not(.cart-badge-detail) {
-    display: none;
+    /* Ocultar TODO el texto, solo iconos */
+  .btn-back-catalog span,
+  .btn-cart-detail > span {
+    display: none !important;
   }
+  
+  /* Mostrar solo el badge del carrito */
+  .cart-badge-detail {
+    display: inline-flex !important;
+  }
+  
+  /* Botones circulares con solo icono */
+  .btn-back-catalog,
+  .btn-cart-detail {
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btn-back-catalog i,
+  .btn-cart-detail i {
+    margin: 0;
+    font-size: 1.1em;
+  }
+
 
   /* Imagen más pequeña */
   .main-image-premium {
