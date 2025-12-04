@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ticoré - Inicio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Burbuja de Anuncio -->
+  <div class="announcement-bubble" id="announcement-bubble">
+    <div class="bubble-content">
+      <i class="fas fa-bolt"></i>
+      <span>2do Drop disponible pronto!</span>
+    </div>
+    <button class="bubble-close" onclick="closeAnnouncement()">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+
+  <!-- Sección Principal -->
+  <section class="hero-section">
+    <video 
+      id="hero-video"
+      class="video-background" 
+      autoplay 
+      muted 
+      loop 
+      playsinline
+      preload="auto"
+    >
+      <source src="images/videofondoreloj.mp4" type="video/mp4">
+      Tu navegador no soporta videos HTML5.
+    </video>
+    <img src="images/logoticore.png" alt="Logo Ticoré" class="logo">
+    <h1>Bienvenido</h1>
+    <button class="start-btn" onclick="window.location.href='catalog.html'">
+      Ingresar al Catálogo
+    </button>
+    <div class="scroll-indicator">
+      <span>NOSOTROS (SCROLL)</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Sección Nosotros MEJORADA -->
+  <section class="about-section" id="nosotros">
+    <!-- Título con animación -->
+    <h2 class="section-title-animated">Nosotros</h2>
+    
+    <!-- Stats Premium -->
+    <!-- Stats Premium -->
+<div class="premium-stats">
+  <div class="stat-card">
+    <div class="stat-icon">
+      <i class="fas fa-award"></i>
+    </div>
+    <div class="stat-number" data-target="20">0</div>
+    <div class="stat-label">Clientes Satisfechos</div>
+  </div>
+  
+  <div class="stat-card">
+    <div class="stat-icon">
+      <i class="fas fa-clock"></i>
+    </div>
+    <div class="stat-number" data-target="15">0</div>
+    <div class="stat-label">Modelos Exclusivos</div>
+  </div>
+  
+  <div class="stat-card">
+    <div class="stat-icon">
+      <i class="fas fa-headset"></i>
+    </div>
+    <div class="stat-number" data-target="24">0</div>
+    <div class="stat-label">Horas de Atención</div>
+  </div>
+  
+  <div class="stat-card">
+    <div class="stat-icon">
+      <i class="fas fa-shield-alt"></i>
+    </div>
+    <div class="stat-number" data-target="5">0</div>
+    <div class="stat-label">Meses de Garantía</div>
+  </div>
+</div>
+
+
+    <!-- Cards de información con efectos premium -->
+    <div class="about-content">
+      <div class="about-card premium-card">
+        <div class="card-icon">
+          <i class="fas fa-info-circle"></i>
+        </div>
+        <h3>Acerca de Nosotros</h3>
+        <p> 
+          Ticoré es más que una tienda de relojes, somos tu destino de confianza para encontrar piezas únicas que reflejen tu estilo y personalidad. Especializados en la marca Poedagar, ofrecemos una selección cuidadosamente curada de relojes que combinan elegancia, calidad y diseño excepcional. Nos enorgullece ser parte de nuestra comunidad, brindando un servicio cercano y personalizado que hace de cada compra una experiencia memorable.
+        </p>
+        <div class="card-decoration"></div>
+      </div>
+
+      <div class="about-card premium-card">
+        <div class="card-icon">
+          <i class="fas fa-bullseye"></i>
+        </div>
+        <h3>Misión</h3>
+        <p>
+          Brindar un servicio personalizado de calidad a todos nuestros clientes abrazando nuestra identidad cultural.
+        </p>
+        <div class="card-decoration"></div>
+      </div>
+
+      <div class="about-card premium-card">
+        <div class="card-icon">
+          <i class="fas fa-eye"></i>
+        </div>
+        <h3>Visión</h3>
+        <p>
+          Ser una tienda de relojes lider en el mercado local, en la cual predomine la elegancia, distinción y confianza con nuestros clientes.
+        </p>
+        <div class="card-decoration"></div>
+      </div>
+    </div>
+
+    <!-- Sección de valores premium -->
+    <div class="values-section">
+      <h3 class="values-title">Por Qué Elegirnos</h3>
+      <div class="values-grid">
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-gem"></i>
+          </div>
+          <h4>Calidad Premium</h4>
+          <p>Productos cuidadosamente seleccionados</p>
+        </div>
+        
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h4>Confianza</h4>
+          <p>Atención personalizada y cercana</p>
+        </div>
+        
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-star"></i>
+          </div>
+          <h4>Exclusividad</h4>
+          <p>Diseños únicos y elegantes</p>
+        </div>
+        
+        <div class="value-item">
+          <div class="value-icon">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <h4>Garantía</h4>
+          <p>Respaldo en cada compra</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección de marca mejorada -->
+    <div class="brand-section-premium">
+      <div class="brand-showcase">
+        <div class="brand-logo-premium">
+          <img src="images/logopoedagar.png" alt="Logo Poedagar" class="logo-poedagar">
+          <div class="logo-glow"></div>
+        </div>
+        <div class="brand-concept-premium">
+          <span class="brand-badge">MARCA EXCLUSIVA</span>
+          <h3>Poedagar</h3>
+          <div class="divider-gold"></div>
+          <p>
+            Poedagar representa la excelencia en relojería, fusionando diseño elegante 
+            con precisión técnica. Cada pieza es una declaración de estilo y calidad, 
+            diseñada para quienes aprecian la distinción y el lujo accesible.
+          </p>
+          <ul class="brand-features">
+            <li><i class="fas fa-check-circle"></i> Movimiento de precisión suiza</li>
+            <li><i class="fas fa-check-circle"></i> Materiales de alta gama</li>
+            <li><i class="fas fa-check-circle"></i> Diseños contemporáneos</li>
+            <li><i class="fas fa-check-circle"></i> Garantía internacional</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección Contacto MEJORADA -->
+    <!-- Sección Contacto MEJORADA -->
+  <section class="contact-section" id="contacto">
+    <h2 class="section-title-animated">Contacto</h2>
+    
+    <!-- Subtítulo premium -->
+    <p class="contact-subtitle">
+      <i class="fas fa-comment-dots"></i>
+      Estamos aquí para ayudarte. Contáctanos por tu medio favorito
+    </p>
+
+    <div class="contact-container-premium">
+      <!-- Redes Sociales Mejoradas -->
+      <div class="social-media-premium">
+        <a href="https://wa.me/59162893192" target="_blank" class="social-btn-premium whatsapp">
+          <div class="social-icon-wrapper">
+            <img src="images/whatsapp-logo.png" alt="WhatsApp">
+            <div class="icon-glow"></div>
+          </div>
+          <span class="social-name">WhatsApp</span>
+          <span class="social-handle">+591 62893192</span>
+        </a>
+        
+        <a href="https://www.instagram.com/ticore.scz/" target="_blank" class="social-btn-premium instagram">
+          <div class="social-icon-wrapper">
+            <img src="images/instagram-logo.png" alt="Instagram">
+            <div class="icon-glow"></div>
+          </div>
+          <span class="social-name">Instagram</span>
+          <span class="social-handle">@ticore.scz</span>
+        </a>
+        
+        <a href="https://www.facebook.com/profile.php?id=61579487280859" target="_blank" class="social-btn-premium facebook">
+          <div class="social-icon-wrapper">
+            <img src="images/facebook-logo.png" alt="Facebook">
+            <div class="icon-glow"></div>
+          </div>
+          <span class="social-name">Facebook</span>
+          <span class="social-handle">Ticoré</span>
+        </a>
+        
+        <a href="https://www.tiktok.com/@ticorescz" target="_blank" class="social-btn-premium tiktok">
+          <div class="social-icon-wrapper">
+            <img src="images/tiktok-logo.png" alt="TikTok">
+            <div class="icon-glow"></div>
+          </div>
+          <span class="social-name">TikTok</span>
+          <span class="social-handle">@ticorescz</span>
+        </a>
+      </div>
+
+      <!-- Información de contacto premium -->
+      <div class="contact-info-premium">
+        <h3><i class="fas fa-address-card"></i> Información de Contacto</h3>
+        
+        <div class="contact-item-premium">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-details">
+            <strong>Email</strong>
+            <a href="mailto:ticore.scz@gmail.com">ticore.scz@gmail.com</a>
+          </div>
+        </div>
+        
+        <div class="contact-item-premium">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="contact-details">
+            <strong>Teléfono</strong>
+            <span>+591 62893192</span>
+          </div>
+        </div>
+        
+        <div class="contact-item-premium">
+          <div class="contact-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="contact-details">
+            <strong>Dirección</strong>
+            <span>Condominio Vista Verde, Santa Cruz, Bolivia</span>
+          </div>
+        </div>
+        
+        <div class="contact-item-premium">
+          <div class="contact-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="contact-details">
+            <strong>Horario de Atención</strong>
+            <span>Lunes a Sábado: 9:00 AM - 8:00 PM</span>
+            <span>Domingo: 10:00 AM - 6:00 PM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer con Copyright -->
+  <footer class="footer-premium">
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="images/logoticore.png" alt="Ticoré">
+      </div>
+      <div class="footer-links">
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+        <a href="catalog.html">Catálogo</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://wa.me/59162893192" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/ticore.scz/" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=61579487280859" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.tiktok.com/@ticorescz" target="_blank"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-copyright">
+      <p>© 2024 Ticoré. Todos los derechos reservados.</p>
+      <p class="footer-tagline">Elegancia en cada momento</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

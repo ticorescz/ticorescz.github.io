@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo - Ticoré</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="catalog-body">
+  
+  <!-- Navbar Premium -->
+  <!-- Navbar Premium -->
+<nav class="navbar-catalog">
+  <div class="nav-container-catalog">
+    <img src="images/logoticore.png" alt="Logo Ticoré" class="nav-logo-catalog" onclick="window.location.href='index.html'">
+    
+    <div class="nav-center" id="nav-center-catalog">
+      <a href="index.html" class="nav-link-catalog"><i class="fas fa-home"></i> Inicio</a>
+      <a href="index.html#nosotros" class="nav-link-catalog"><i class="fas fa-info-circle"></i> Nosotros</a>
+      <a href="index.html#contacto" class="nav-link-catalog"><i class="fas fa-envelope"></i> Contacto</a>
+    </div>
+
+    <div class="nav-right-catalog">
+      <button class="cart-btn-catalog" onclick="window.location.href='cart.html'">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-badge" id="cart-count">0</span>
+      </button>
+
+      <button class="hamburger-catalog" id="hamburger-catalog" onclick="toggleCatalogMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+
+  <!-- Hero Section del Catálogo -->
+  <section class="catalog-hero">
+    <div class="catalog-hero-content">
+      <h1 class="catalog-title">
+        <span class="title-small">Descubre Nuestra</span>
+        <span class="title-large">Colección Exclusiva</span>
+      </h1>
+      <p class="catalog-subtitle">Elegancia atemporal en cada diseño</p>
+    </div>
+    <div class="hero-decoration"></div>
+  </section>
+
+  <!-- Filtros Premium -->
+  <section class="filter-section-premium">
+    <div class="filter-container-premium">
+      <h3 class="filter-title"><i class="fas fa-filter"></i> Filtrar por Estilo</h3>
+      <div class="filter-buttons">
+        <button class="filter-btn-premium active" data-category="todos">
+          <i class="fas fa-th"></i>
+          <span>Todos</span>
+        </button>
+        <button class="filter-btn-premium" data-category="elegante">
+          <i class="fas fa-gem"></i>
+          <span>Elegante & Refinado</span>
+        </button>
+        <button class="filter-btn-premium" data-category="bold">
+          <i class="fas fa-bolt"></i>
+          <span>Llamativo y Elegante</span>
+        </button>
+        <button class="filter-btn-premium" data-category="deportivo">
+          <i class="fas fa-running"></i>
+          <span>Deportivo</span>
+        </button>
+        <button class="filter-btn-premium" data-category="minimalista">
+          <i class="fas fa-circle"></i>
+          <span>Minimalista</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grid de Productos Premium -->
+  <section class="products-section-premium">
+    <div class="products-grid-premium" id="products-grid">
+      <!-- Los productos se cargarán dinámicamente -->
+    </div>
+  </section>
+
+  <!-- Footer Copyright -->
+  <footer class="footer-catalog">
+    <p>© 2024 Ticoré. Todos los derechos reservados.</p>
+    <p class="footer-tagline">Elegancia en cada momento</p>
+  </footer>
+
+  <script src="js/catalog.js"></script>
+</body>
+</html>
