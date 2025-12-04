@@ -4045,3 +4045,258 @@ h1 {
     justify-content: center;
   }
 }
+
+/* ============================================
+   PRODUCT DETAIL - RESPONSIVE MOBILE COMPLETO
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .product-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .gallery-column-premium {
+    position: relative;
+    top: 0;
+  }
+  
+  .action-buttons-premium {
+    grid-template-columns: 1fr;
+  }
+  
+  .trust-badges-premium {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  /* Navbar Detail Mobile */
+  .navbar-detail-premium {
+    padding: 12px 0;
+  }
+  
+  .nav-container-detail {
+    padding: 0 15px;
+  }
+  
+  .nav-logo-detail {
+    height: 40px;
+  }
+  
+  .nav-buttons-detail {
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .btn-back-catalog,
+  .btn-cart-detail {
+    padding: 10px 15px;
+    font-size: 0.9em;
+    border-radius: 25px;
+  }
+  
+  /* Ocultar texto en botones, solo iconos */
+  .btn-back-catalog span,
+  .btn-cart-detail span:not(.cart-badge-detail) {
+    display: none;
+  }
+  
+  .btn-back-catalog i,
+  .btn-cart-detail i {
+    margin: 0;
+  }
+  
+  /* Contenedor Principal Mobile */
+  .product-detail-container-premium {
+    margin-top: 80px;
+    padding: 0 15px;
+    margin-bottom: 30px;
+  }
+  
+  /* Breadcrumb Mobile */
+  .breadcrumb-premium {
+    margin-bottom: 20px;
+    font-size: 0.85em;
+    flex-wrap: wrap;
+  }
+  
+  /* Galería Mobile */
+  .main-image-container-premium {
+    padding: 20px;
+    border-radius: 15px;
+  }
+  
+  .main-image-premium {
+    max-height: 350px;
+  }
+  
+  .badge-premium {
+    padding: 8px 15px;
+    font-size: 0.8em;
+  }
+  
+  /* Info Mobile */
+  .category-badge-premium {
+    font-size: 0.8em;
+    padding: 6px 15px;
+    margin-bottom: 15px;
+  }
+  
+  .product-title-premium {
+    font-size: 1.6em;
+    margin-bottom: 20px;
+  }
+  
+  /* Precio Mobile */
+  .price-section-premium {
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+  }
+  
+  .price-main {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+  }
+  
+  .price-benefits {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .benefit-item {
+    font-size: 0.9em;
+  }
+  
+  /* Descripción Mobile */
+  .description-section-premium {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .description-section-premium h3 {
+    font-size: 1.1em;
+  }
+  
+  .description-section-premium p {
+    font-size: 0.95em;
+  }
+  
+  /* Selector de Color Mobile */
+  .color-selector-premium {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .color-selector-premium label {
+    font-size: 1em;
+  }
+  
+  .color-option-premium {
+    width: 45px;
+    height: 45px;
+  }
+  
+  /* Cantidad Mobile */
+  .quantity-section-premium {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .qty-btn-premium {
+    width: 45px;
+    height: 45px;
+    font-size: 1.2em;
+  }
+  
+  .qty-input-premium {
+    width: 70px;
+    height: 45px;
+    font-size: 1.3em;
+  }
+  
+  /* Botones de Acción Mobile */
+  .action-buttons-premium {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .btn-add-cart-premium,
+  .btn-buy-now-premium {
+    padding: 16px 25px;
+    font-size: 1em;
+    border-radius: 12px;
+  }
+  
+  /* Características Mobile */
+  .features-section-premium {
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .features-section-premium h3 {
+    font-size: 1.1em;
+  }
+  
+  .features-list-premium li {
+    font-size: 0.95em;
+    padding: 10px;
+  }
+  
+  /* Trust Badges Mobile */
+  .trust-badges-premium {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .trust-item {
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    text-align: left;
+  }
+  
+  .trust-item i {
+    font-size: 1.5em;
+    margin-bottom: 0;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .nav-container-detail {
+    justify-content: space-between;
+  }
+  
+  .nav-logo-detail {
+    height: 35px;
+  }
+  
+  .btn-back-catalog,
+  .btn-cart-detail {
+    padding: 10px 12px;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    justify-content: center;
+  }
+  
+  .main-image-premium {
+    max-height: 280px;
+  }
+  
+  .product-title-premium {
+    font-size: 1.4em;
+  }
+  
+  .price-main {
+    font-size: 1.9em;
+  }
+}
+
