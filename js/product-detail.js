@@ -447,6 +447,7 @@ const products = [
     title: "Poedagar PD 613 Cuero",
     code: "PD-613-CUERO",
     category: "elegante",
+    inStock: false,
     price: 280,
     images: [
       "images/pd613-cuero-1.png"
