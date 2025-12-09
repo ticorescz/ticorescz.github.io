@@ -310,6 +310,7 @@ const products = [
     title: "Poedagar PD 815",
     code: "PD-815",
     category: "bold",
+    inStock: false,
     price: 390,
     images: [
       "images/pd815-1.png",
@@ -405,6 +406,7 @@ const products = [
     title: "Poedagar PD 814",
     code: "PD-814",
     category: "deportivo",
+    inStock: false,
     price: 330,
     images: [
       "images/pd814-1.png",
@@ -454,13 +456,16 @@ function displayProducts() {
     ? products 
     : products.filter(p => p.category === currentFilter);
   
-  grid.innerHTML = filteredProducts.map(product => `
-    <div class="product-card-premium" onclick="goToProduct(${product.id})">
+  grid.innerHTML = filteredProducts.map(product => {
+    const isOutOfStock = product.inStock === false;
+    return `
+    <div class="product-card-premium${isOutOfStock ? ' out-of-stock' : ''}" onclick="goToProduct(${product.id})">
       <div class="product-image-container">
         <img src="${product.images[0]}" 
              alt="${product.title}" 
              class="product-image-premium"
              onerror="this.src='https://via.placeholder.com/350x350/1a1a1a/D4AF37?text=TICORE+${product.code}'">
+        ${isOutOfStock ? '<div class="product-stock-overlay">AGOTADO</div>' : ''}
         <span class="product-badge">${product.badge}</span>
       </div>
       
@@ -476,6 +481,8 @@ function displayProducts() {
         <div class="product-price-container">
           <span class="product-price-premium">Bs. ${product.price}</span>
         </div>
+
+        ${isOutOfStock ? '<p class="stock-status-text">Producto agotado</p>' : ''}
         
         <div class="product-features-mini">
           ${product.features.slice(0, 2).map(f => `
@@ -488,7 +495,8 @@ function displayProducts() {
         </button>
       </div>
     </div>
-  `).join('');
+  `;
+  }).join('');
 }
 
 function getCategoryIcon(category) {

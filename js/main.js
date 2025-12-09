@@ -82,15 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
 // FUNCIONALIDADES PREMIUM
 // ============================================
 
-// Cerrar burbuja de anuncio
-function closeAnnouncement() {
-  const bubble = document.getElementById('announcement-bubble');
-  bubble.style.animation = 'fadeOut 0.3s ease';
-  setTimeout(() => {
-    bubble.style.display = 'none';
-  }, 300);
-}
-
 // Animación de números en stats
 function animateStats() {
   const stats = document.querySelectorAll('.stat-number');
@@ -139,12 +130,3 @@ if (contactForm) {
   });
 }
 
-// Animación fade out para cerrar burbuja
-const style = document.createElement('style');
-style.textContent = `
-  @keyframes fadeOut {
-    from { opacity: 1; transform: translateY(0); }
-    to { opacity: 0; transform: translateY(-20px); }
-  }
-`;
-document.head.appendChild(style);

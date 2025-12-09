@@ -57,7 +57,7 @@ const products = [
     colors: [
       { name: "Azul con café", hex: "#1e3a8a", hex2: "#8B4513", imageIndex: 0 },
       { name: "Negro con café", hex: "#000000", hex2: "#8B4513", imageIndex: 1 },
-      { name: "Full black", hex: "#1a1a1a", imageIndex: 2 }
+      { name: "Full black", hex: "#1a1a1a", imageIndex: 2, available: false }
     ],
     badge: "CRONÓGRAFO"
   },
@@ -143,7 +143,7 @@ const products = [
     ],
     colors: [
       { name: "Rosa con plateado", hex: "#FFC0CB", hex2: "#C0C0C0", imageIndex: 0 },
-      { name: "Turquesa con plateado", hex: "#40E0D0", hex2: "#C0C0C0", imageIndex: 1 }
+      { name: "Turquesa con plateado", hex: "#40E0D0", hex2: "#C0C0C0", imageIndex: 1, available: false }
     ],
     badge: "FEMENINO"
   },
@@ -206,7 +206,7 @@ const products = [
     colors: [
       { name: "Dorado", hex: "#D4AF37", imageIndex: 0 },
       { name: "Dorado con plateado", hex: "#D4AF37", hex2: "#C0C0C0", imageIndex: 1 },
-      { name: "Blanco con plateado", hex: "#FFFFFF", hex2: "#C0C0C0", imageIndex: 2 },
+      { name: "Blanco con plateado", hex: "#FFFFFF", hex2: "#C0C0C0", imageIndex: 2, available: false },
       { name: "Negro con plateado", hex: "#000000", hex2: "#C0C0C0", imageIndex: 3 }
     ],
     badge: "ELEGANTE"
@@ -360,6 +360,7 @@ const products = [
     title: "Poedagar PD 815",
     code: "PD-815",
     category: "bold",
+    inStock: false,
     price: 390,
     images: [
       "images/pd815-1.png"
@@ -472,6 +473,7 @@ const products = [
     title: "Poedagar PD 814",
     code: "PD-814",
     category: "deportivo",
+    inStock: false,
     price: 330,
     images: [
       "images/pd814-1.png"
@@ -513,6 +515,7 @@ function loadProduct() {
   const productId = parseInt(urlParams.get('id'));
   
   currentProduct = products.find(p => p.id === productId);
+  selectedColor = null;
   
   if (!currentProduct) {
     alert('Producto no encontrado');
@@ -526,11 +529,17 @@ function loadProduct() {
 // Mostrar producto
 function displayProduct() {
   const p = currentProduct;
+  const isAvailable = p.inStock !== false;
   
   document.getElementById('product-name').textContent = p.title;
   document.getElementById('product-category').textContent = p.category.toUpperCase();
   document.getElementById('product-price').innerHTML = `Bs. ${p.price}`;
   document.getElementById('product-description').textContent = p.description;
+
+  const breadcrumb = document.getElementById('breadcrumb-product');
+  if (breadcrumb) breadcrumb.textContent = p.title;
+  const badgeEl = document.getElementById('product-badge');
+  if (badgeEl) badgeEl.textContent = p.badge || 'TICORÉ';
   
   const featuresHtml = p.features.map(f => `<li>${f}</li>`).join('');
   document.getElementById('product-features').innerHTML = featuresHtml;
@@ -552,56 +561,86 @@ function displayProduct() {
   
   if (p.colors && p.colors.length > 0) {
     createColorSelector();
+  } else {
+    const selectorContainer = document.getElementById('color-selector-container');
+    if (selectorContainer) selectorContainer.innerHTML = '';
   }
+
+  updateStockStatus(isAvailable);
 }
 
 // Crear selector de colores
-// Crear selector de colores CON SOPORTE PARA DOS COLORES
 function createColorSelector() {
-  const colorSelectorHtml = `
-    <div class="color-selector" style="margin: 20px 0;">
-      <label style="font-weight: 600; display: block; margin-bottom: 10px; color: #000;">Color:</label>
-      <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-        ${currentProduct.colors.map(color => {
-          // Si tiene hex2, crear gradiente dividido 50/50
-          const backgroundStyle = color.hex2 
-            ? `linear-gradient(90deg, ${color.hex} 50%, ${color.hex2} 50%)`
-            : color.hex;
-          
-          const boxShadow = (color.hex === '#ffffff' || color.hex === '#FFFFFF' || color.hex2 === '#ffffff' || color.hex2 === '#FFFFFF')
-            ? 'box-shadow: inset 0 0 0 1px #ccc;'
-            : '';
-          
-          return `
-            <div class="color-option" 
-                 data-color-name="${color.name}"
-                 data-color-hex="${color.hex}"
-                 onclick="selectColor('${color.name}', '${color.hex}')"
-                 style="
-                   width: 40px; 
-                   height: 40px; 
-                   border-radius: 50%; 
-                   background: ${backgroundStyle}; 
-                   cursor: pointer; 
-                   border: 3px solid #e0e0e0;
-                   transition: 0.3s;
-                   ${boxShadow}
-                 "
-                 onmouseover="this.style.borderColor='#D4AF37'; this.style.transform='scale(1.1)'"
-                 onmouseout="this.style.borderColor='#e0e0e0'; this.style.transform='scale(1)'"
-                 title="${color.name}">
-            </div>
-          `;
-        }).join('')}
+  const selectorContainer = document.getElementById('color-selector-container');
+  if (!selectorContainer) return;
+
+  const hasUnavailableColors = currentProduct.colors.some(color => color.available === false);
+  const helperText = hasUnavailableColors
+    ? 'Selecciona un color disponible (los agotados están indicados).'
+    : 'Selecciona un color';
+
+  const colorOptions = currentProduct.colors.map(color => {
+    const backgroundStyle = color.hex2 
+      ? `linear-gradient(90deg, ${color.hex} 50%, ${color.hex2} 50%)`
+      : color.hex;
+    
+    const requiresOutline = (color.hex || '').toLowerCase() === '#ffffff' || (color.hex2 || '').toLowerCase() === '#ffffff';
+    const boxShadow = requiresOutline ? 'box-shadow: inset 0 0 0 1px #ccc;' : '';
+    const isAvailable = color.available !== false;
+    const safeColorName = color.name.replace(/'/g, "\\'");
+    
+    return `
+      <div class="color-option ${isAvailable ? '' : 'color-option-disabled'}"
+           data-color-name="${color.name}"
+           data-color-hex="${color.hex}"
+           ${isAvailable ? `onclick="selectColor('${safeColorName}', '${color.hex}')"` : 'aria-disabled="true"'}
+           style="background: ${backgroundStyle}; ${boxShadow}">
+        ${!isAvailable ? '<span class="color-status-tag">Agotado</span>' : ''}
       </div>
-      <p id="selected-color" style="margin-top: 10px; color: #666; font-size: 0.9em;">
-        Selecciona un color
-      </p>
+    `;
+  }).join('');
+
+  selectorContainer.innerHTML = `
+    <div class="color-selector color-selector-premium">
+      <label>Color:</label>
+      <div class="color-options-grid">
+        ${colorOptions}
+      </div>
+      <p id="selected-color" class="color-helper-text">${helperText}</p>
     </div>
   `;
-  
-  const quantitySelector = document.querySelector('.quantity-selector');
-  quantitySelector.insertAdjacentHTML('beforebegin', colorSelectorHtml);
+}
+
+function updateStockStatus(isAvailable) {
+  const stockStatusEl = document.getElementById('stock-status');
+  const addBtn = document.querySelector('.btn-add-cart-premium');
+  const buyBtn = document.querySelector('.btn-buy-now-premium');
+  const qtyBtns = document.querySelectorAll('.qty-btn-premium');
+  const quantityInput = document.getElementById('quantity');
+
+  if (stockStatusEl) {
+    stockStatusEl.textContent = isAvailable
+      ? 'Disponible para envío inmediato'
+      : 'Producto agotado';
+    stockStatusEl.classList.toggle('in-stock', isAvailable);
+    stockStatusEl.classList.toggle('out-of-stock', !isAvailable);
+    stockStatusEl.setAttribute('aria-live', 'polite');
+  }
+
+  [addBtn, buyBtn].forEach(btn => {
+    if (!btn) return;
+    btn.disabled = !isAvailable;
+    btn.classList.toggle('disabled', !isAvailable);
+    btn.setAttribute('aria-disabled', !isAvailable);
+  });
+
+  qtyBtns.forEach(btn => {
+    btn.disabled = !isAvailable;
+  });
+
+  if (quantityInput) {
+    quantityInput.disabled = !isAvailable;
+  }
 }
 
 
@@ -611,6 +650,11 @@ function selectColor(colorName, colorHex) {
   // Buscar el color completo en el producto actual
   const colorObj = currentProduct.colors.find(c => c.name === colorName);
 
+  if (colorObj && colorObj.available === false) {
+    alert('Ese color está agotado. Por favor elige otro tono.');
+    return;
+  }
+
   selectedColor = { 
     name: colorName, 
     hex: colorHex,
@@ -618,17 +662,17 @@ function selectColor(colorName, colorHex) {
   };
 
   // Actualizar texto
-  document.getElementById('selected-color').innerHTML = `
-    <strong style="color: #D4AF37;">Color seleccionado:</strong> ${colorName}
-  `;
+  const selectedColorEl = document.getElementById('selected-color');
+  if (selectedColorEl) {
+    selectedColorEl.innerHTML = `
+      <strong style="color: #D4AF37;">Color seleccionado:</strong> ${colorName}
+    `;
+  }
 
-  // Reset de estilos de los círculos
+  // Actualizar selección visual
   document.querySelectorAll('.color-option').forEach(option => {
-    option.style.borderColor = '#e0e0e0';
-    option.style.transform = 'scale(1)';
+    option.classList.toggle('selected', option.dataset.colorName === colorName);
   });
-  event.target.style.borderColor = '#D4AF37';
-  event.target.style.transform = 'scale(1.15)';
 
   // ⭐ CAMBIAR IMAGEN PRINCIPAL según el color
   if (colorObj && typeof colorObj.imageIndex === 'number' && currentProduct.images[colorObj.imageIndex]) {
@@ -664,6 +708,11 @@ function changeQuantity(change) {
 
 // Agregar al carrito
 function addToCart() {
+  if (currentProduct.inStock === false) {
+    alert('Este producto está agotado actualmente.');
+    return;
+  }
+
   if (currentProduct.colors && currentProduct.colors.length > 0 && !selectedColor) {
     alert('Por favor selecciona un color');
     return;
@@ -712,6 +761,11 @@ function updateCartCount() {
 
 // Comprar ahora (agregar y redirigir al carrito)
 function buyNow() {
+  if (currentProduct.inStock === false) {
+    alert('Este producto está agotado actualmente.');
+    return;
+  }
+
   // Validar selección de color
   if (currentProduct.colors && currentProduct.colors.length > 0 && !selectedColor) {
     alert('Por favor selecciona un color');
