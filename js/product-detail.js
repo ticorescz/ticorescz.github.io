@@ -69,7 +69,7 @@ const products = [
     price: 370,
     images: [
       "images/pd921-acero-1.png",
-      "images/pd921-acero-2.png"
+      "images/pd921-acero-3.png"
     ],
     description: "Elegancia contemporánea con correa de acero inoxidable. Cronógrafo premium con cierre de seguridad oculto.",
     shortDescription: "Cronógrafo premium en acero",
