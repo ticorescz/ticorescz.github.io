@@ -8,6 +8,7 @@ const products = [
     title: "Poedagar PD 986",
     code: "PD-986",
     category: "elegante",
+    inStock: false,
     price: 250,
     images: [
       "images/pd986-1.png",
@@ -88,6 +89,7 @@ const products = [
     title: "Poedagar PD 829",
     code: "PD-829",
     category: "minimalista",
+    inStock: false,
     price: 230,
     images: [
       "images/pd829-1.png",
@@ -334,6 +336,7 @@ const products = [
     title: "Poedagar PD 365 M",
     code: "PD-365-M",
     category: "elegante",
+    inStock: false,
     price: 250,
     images: [
       "images/pd365m-1.png",

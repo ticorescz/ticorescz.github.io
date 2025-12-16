@@ -8,6 +8,7 @@ const products = [
     title: "Poedagar PD 986",
     code: "PD-986",
     category: "elegante",
+    inStock: false,
     price: 250,
     images: [
       "images/pd986-1.png",
@@ -55,7 +56,7 @@ const products = [
       "Grosor de caja: 12mm"
     ],
     colors: [
-      { name: "Azul con café", hex: "#1e3a8a", hex2: "#8B4513", imageIndex: 0 },
+      { name: "Azul con café", hex: "#1e3a8a", hex2: "#8B4513", imageIndex: 0, available: false },
       { name: "Negro con café", hex: "#000000", hex2: "#8B4513", imageIndex: 1 },
       { name: "Full black", hex: "#1a1a1a", imageIndex: 2, available: false }
     ],
@@ -96,6 +97,7 @@ const products = [
     title: "Poedagar PD 829",
     code: "PD-829",
     category: "minimalista",
+    inStock: false,
     price: 230,
     images: [
       "images/pd829-1.png",
@@ -205,9 +207,9 @@ const products = [
     ],
     colors: [
       { name: "Dorado", hex: "#D4AF37", imageIndex: 0 },
-      { name: "Dorado con plateado", hex: "#D4AF37", hex2: "#C0C0C0", imageIndex: 1 },
+      { name: "Dorado con plateado", hex: "#D4AF37", hex2: "#C0C0C0", imageIndex: 1, available: false },
       { name: "Blanco con plateado", hex: "#FFFFFF", hex2: "#C0C0C0", imageIndex: 2, available: false },
-      { name: "Negro con plateado", hex: "#000000", hex2: "#C0C0C0", imageIndex: 3 }
+      { name: "Negro con plateado", hex: "#000000", hex2: "#C0C0C0", imageIndex: 3, available: false }
     ],
     badge: "ELEGANTE"
   },
@@ -387,6 +389,7 @@ const products = [
     title: "Poedagar PD 365 M",
     code: "PD-365-M",
     category: "elegante",
+    inStock: false,
     price: 250,
     images: [
       "images/pd365m-1.png",
@@ -435,9 +438,9 @@ const products = [
       "Estilo versátil: sport, business, casual"
     ],
     colors: [
-      { name: "Negro con plateado", hex: "#000000", hex2: "#C0C0C0", imageIndex: 0 },
+      { name: "Negro con plateado", hex: "#000000", hex2: "#C0C0C0", imageIndex: 0, available: false },
       { name: "Blanco con plateado", hex: "#FFFFFF", hex2: "#C0C0C0", imageIndex: 1 },
-      { name: "Azul con plateado", hex: "#0066CC", hex2: "#C0C0C0", imageIndex: 2 },
+      { name: "Azul con plateado", hex: "#0066CC", hex2: "#C0C0C0", imageIndex: 2, available: false },
       { name: "Verde con plateado", hex: "#28a745", hex2: "#C0C0C0", imageIndex: 3 }
     ],
     badge: "MODERNO"
