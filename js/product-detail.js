@@ -267,7 +267,7 @@ const products = [
     ],
     colors: [
       { name: "Blanco con plateado", hex: "#FFFFFF", hex2: "#C0C0C0", imageIndex: 0 },
-      { name: "Negro con plateado", hex: "#000000", hex2: "#C0C0C0", imageIndex: 1 }
+      { name: "Negro con plateado", hex: "#000000", hex2: "#C0C0C0", imageIndex: 1, available: false }
     ],
     badge: "VERSÁTIL"
   },
@@ -276,6 +276,7 @@ const products = [
     title: "Poedagar PD 808",
     code: "PD-808",
     category: "deportivo",
+    inStock: false,
     price: 260,
     images: [
       "images/pd808-1.png",
@@ -295,9 +296,9 @@ const products = [
       "Peso ligero: 80g"
     ],
     colors: [
-      { name: "Azul marino", hex: "#001f3f", imageIndex: 0 },
-      { name: "Negro", hex: "#000000", imageIndex: 1 },
-      { name: "Blanco con negro", hex: "#FFFFFF", hex2: "#000000", imageIndex: 2 }
+      { name: "Azul marino", hex: "#001f3f", imageIndex: 0, available: false },
+      { name: "Negro", hex: "#000000", imageIndex: 1, available: false },
+      { name: "Blanco con negro", hex: "#FFFFFF", hex2: "#000000", imageIndex: 2, available: false }
     ],
     badge: "SPORT"
   },
@@ -336,6 +337,7 @@ const products = [
     title: "Poedagar PD 928",
     code: "PD-928",
     category: "deportivo",
+    inStock: false,
     price: 390,
     images: [
       "images/pd928-1.png",
@@ -355,7 +357,7 @@ const products = [
     ],
     colors: [
       { name: "Full black", hex: "#1a1a1a", imageIndex: 0, available: false },
-      { name: "Negro con plateado", hex: "#000000", hex2: "#C0C0C0", imageIndex: 1 }
+      { name: "Negro con plateado", hex: "#000000", hex2: "#C0C0C0", imageIndex: 1, available: false }
     ],
     badge: "CRONÓGRAFO"
   },

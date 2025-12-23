@@ -230,7 +230,7 @@ const products = [
       "Diseño unisex"
     ],
     colors: [
-      { name: "Negra", hex: "#000000" },
+      { name: "Negra", hex: "#000000", available: false },
       { name: "Blanca", hex: "#FFFFFF" }
     ],
     badge: "VERSÁTIL"
@@ -240,6 +240,7 @@ const products = [
     title: "Poedagar PD 808",
     code: "PD-808",
     category: "deportivo",
+    inStock: false,
     price: 260,
     images: [
       "images/pd808-1.png",
@@ -254,9 +255,9 @@ const products = [
       "Luminoso"
     ],
     colors: [
-      { name: "Azul Oscuro", hex: "#001f3f" },
-      { name: "Negro", hex: "#000000" },
-      { name: "Blanco", hex: "#FFFFFF" }
+      { name: "Azul Oscuro", hex: "#001f3f", available: false },
+      { name: "Negro", hex: "#000000", available: false },
+      { name: "Blanco", hex: "#FFFFFF", available: false }
     ],
     badge: "SPORT"
   },
@@ -290,6 +291,7 @@ const products = [
     title: "Poedagar PD 928",
     code: "PD-928",
     category: "deportivo",
+    inStock: false,
     price: 390,
     images: [
       "images/pd928-1.png",
@@ -305,7 +307,7 @@ const products = [
     ],
     colors: [
       { name: "Full Black", hex: "#1a1a1a", imageIndex: 0, available: false },
-      { name: "Negra", hex: "#000000", imageIndex: 1 }
+      { name: "Negra", hex: "#000000", imageIndex: 1, available: false }
     ],
     badge: "CRONÓGRAFO"
   },
