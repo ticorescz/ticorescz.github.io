@@ -52,9 +52,9 @@ const products = [
       "Calendario integrado"
     ],
     colors: [
-      { name: "Negro/Plata", hex: "#000000" },
-      { name: "Azul/Plata", hex: "#1e3a8a" },
-      { name: "Full Black", hex: "#1a1a1a" }
+      { name: "Negro/Plata", hex: "#000000", imageIndex: 1 },
+      { name: "Azul/Plata", hex: "#1e3a8a", imageIndex: 0, available: false },
+      { name: "Full Black", hex: "#1a1a1a", imageIndex: 2, available: false }
     ],
     badge: "CRONÓGRAFO"
   },
@@ -114,6 +114,7 @@ const products = [
     title: "Poedagar PD 708 M",
     code: "PD-708-M",
     category: "elegante",
+    inStock: false,
     price: 250,
     images: [
       "images/pd708m-1.png",
@@ -128,8 +129,8 @@ const products = [
       "Manecillas luminosas"
     ],
     colors: [
-      { name: "Rosa", hex: "#FFC0CB" },
-      { name: "Turquesa", hex: "#40E0D0" }
+      { name: "Rosa", hex: "#FFC0CB", imageIndex: 0, available: false },
+      { name: "Turquesa", hex: "#40E0D0", imageIndex: 1, available: false }
     ],
     badge: "FEMENINO"
   },
@@ -164,6 +165,7 @@ const products = [
     title: "Poedagar PD 786 M",
     code: "PD-786-M",
     category: "elegante",
+    inStock: false,
     price: 260,
     images: [
       "images/pd786m-1.png",
@@ -178,10 +180,10 @@ const products = [
       "Batería: 18 meses"
     ],
     colors: [
-      { name: "Dorado", hex: "#D4AF37" },
-      { name: "Blanca", hex: "#FFFFFF" },
-      { name: "Negra", hex: "#000000" },
-      { name: "Bronce", hex: "#F5F5DC" }
+      { name: "Dorado", hex: "#D4AF37", imageIndex: 0, available: false },
+      { name: "Blanca", hex: "#FFFFFF", imageIndex: 1, available: false },
+      { name: "Negra", hex: "#000000", imageIndex: 2, available: false },
+      { name: "Bronce", hex: "#F5F5DC", imageIndex: 3, available: false }
     ],
     badge: "ELEGANTE"
   },
@@ -302,8 +304,8 @@ const products = [
       "Peso: 145g"
     ],
     colors: [
-      { name: "Full Black", hex: "#1a1a1a" },
-      { name: "Negra", hex: "#000000" }
+      { name: "Full Black", hex: "#1a1a1a", imageIndex: 0, available: false },
+      { name: "Negra", hex: "#000000", imageIndex: 1 }
     ],
     badge: "CRONÓGRAFO"
   },
@@ -375,9 +377,9 @@ const products = [
       "Peso: 120g"
     ],
     colors: [
-      { name: "Azul Marino", hex: "#000080" },
-      { name: "Blanco", hex: "#FFFFFF" },
-      { name: "Verde", hex: "#28a745" }
+      { name: "Azul Marino", hex: "#000080", imageIndex: 2, available: false },
+      { name: "Blanco", hex: "#FFFFFF", imageIndex: 1 },
+      { name: "Verde", hex: "#28a745", imageIndex: 3 }
     ],
     badge: "MODERNO"
   },
@@ -462,10 +464,11 @@ function displayProducts() {
   
   grid.innerHTML = filteredProducts.map(product => {
     const isOutOfStock = product.inStock === false;
+    const thumbnailSrc = getStockThumbnail(product);
     return `
     <div class="product-card-premium${isOutOfStock ? ' out-of-stock' : ''}" onclick="goToProduct(${product.id})">
       <div class="product-image-container">
-        <img src="${product.images[0]}" 
+        <img src="${thumbnailSrc}" 
              alt="${product.title}" 
              class="product-image-premium"
              onerror="this.src='https://via.placeholder.com/350x350/1a1a1a/D4AF37?text=TICORE+${product.code}'">
@@ -501,6 +504,31 @@ function displayProducts() {
     </div>
   `;
   }).join('');
+}
+
+function getStockThumbnail(product) {
+  if (!product || !Array.isArray(product.images) || product.images.length === 0) {
+    return '';
+  }
+
+  if (product.inStock === false) {
+    return product.images[0];
+  }
+
+  if (Array.isArray(product.colors)) {
+    const availableColor = product.colors.find(color => (
+      color &&
+      color.available !== false &&
+      Number.isInteger(color.imageIndex) &&
+      product.images[color.imageIndex]
+    ));
+
+    if (availableColor) {
+      return product.images[availableColor.imageIndex];
+    }
+  }
+
+  return product.images[0];
 }
 
 function getCategoryIcon(category) {

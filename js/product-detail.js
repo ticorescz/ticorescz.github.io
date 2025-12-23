@@ -126,6 +126,7 @@ const products = [
     title: "Poedagar PD 708 M",
     code: "PD-708-M",
     category: "elegante",
+    inStock: false,
     price: 250,
     images: [
       "images/pd708m-1.png",
@@ -144,7 +145,7 @@ const products = [
       "Grosor de caja: 11mm"
     ],
     colors: [
-      { name: "Rosa con plateado", hex: "#FFC0CB", hex2: "#C0C0C0", imageIndex: 0 },
+      { name: "Rosa con plateado", hex: "#FFC0CB", hex2: "#C0C0C0", imageIndex: 0, available: false },
       { name: "Turquesa con plateado", hex: "#40E0D0", hex2: "#C0C0C0", imageIndex: 1, available: false }
     ],
     badge: "FEMENINO"
@@ -186,6 +187,7 @@ const products = [
     title: "Poedagar PD 786 M",
     code: "PD-786-M",
     category: "elegante",
+    inStock: false,
     price: 260,
     images: [
       "images/pd786m-1.png",
@@ -206,7 +208,7 @@ const products = [
       "Batería: 18 meses"
     ],
     colors: [
-      { name: "Dorado", hex: "#D4AF37", imageIndex: 0 },
+      { name: "Dorado", hex: "#D4AF37", imageIndex: 0, available: false },
       { name: "Dorado con plateado", hex: "#D4AF37", hex2: "#C0C0C0", imageIndex: 1, available: false },
       { name: "Blanco con plateado", hex: "#FFFFFF", hex2: "#C0C0C0", imageIndex: 2, available: false },
       { name: "Negro con plateado", hex: "#000000", hex2: "#C0C0C0", imageIndex: 3, available: false }
@@ -352,7 +354,7 @@ const products = [
       "Peso: 145g - Construcción sólida"
     ],
     colors: [
-      { name: "Full black", hex: "#1a1a1a", imageIndex: 0 },
+      { name: "Full black", hex: "#1a1a1a", imageIndex: 0, available: false },
       { name: "Negro con plateado", hex: "#000000", hex2: "#C0C0C0", imageIndex: 1 }
     ],
     badge: "CRONÓGRAFO"
@@ -534,6 +536,7 @@ function loadProduct() {
 function displayProduct() {
   const p = currentProduct;
   const isAvailable = p.inStock !== false;
+  const initialSelection = getInitialSelection(p);
   
   document.getElementById('product-name').textContent = p.title;
   document.getElementById('product-category').textContent = p.category.toUpperCase();
@@ -549,7 +552,7 @@ function displayProduct() {
   document.getElementById('product-features').innerHTML = featuresHtml;
   
   const mainImage = document.getElementById('main-image');
-  mainImage.src = p.images[0];
+  mainImage.src = p.images[initialSelection.imageIndex];
   mainImage.onerror = function() {
     this.src = `https://via.placeholder.com/500x500/1a1a1a/D4AF37?text=TICORE+${p.code}`;
   };
@@ -558,19 +561,47 @@ function displayProduct() {
   thumbnailGallery.innerHTML = p.images.map((img, index) => `
     <img src="${img}" 
          alt="Vista ${index + 1}" 
-         class="thumbnail ${index === 0 ? 'active' : ''}" 
+         class="thumbnail ${index === initialSelection.imageIndex ? 'active' : ''}" 
          onclick="changeMainImage('${img}', this)"
          onerror="this.src='https://via.placeholder.com/80x80/1a1a1a/D4AF37?text=V${index+1}'">
   `).join('');
   
   if (p.colors && p.colors.length > 0) {
     createColorSelector();
+    if (initialSelection.colorObj) {
+      applySelectedColor(initialSelection.colorObj);
+    }
   } else {
     const selectorContainer = document.getElementById('color-selector-container');
     if (selectorContainer) selectorContainer.innerHTML = '';
   }
 
   updateStockStatus(isAvailable);
+}
+
+function getInitialSelection(product) {
+  const fallbackIndex = 0;
+
+  if (!product || !Array.isArray(product.images) || product.images.length === 0) {
+    return { imageIndex: fallbackIndex, colorObj: null };
+  }
+
+  if (product.inStock === false || !Array.isArray(product.colors)) {
+    return { imageIndex: fallbackIndex, colorObj: null };
+  }
+
+  const availableColor = product.colors.find(color => (
+    color &&
+    color.available !== false &&
+    Number.isInteger(color.imageIndex) &&
+    product.images[color.imageIndex]
+  ));
+
+  if (availableColor) {
+    return { imageIndex: availableColor.imageIndex, colorObj: availableColor };
+  }
+
+  return { imageIndex: fallbackIndex, colorObj: null };
 }
 
 // Crear selector de colores
@@ -613,6 +644,38 @@ function createColorSelector() {
       <p id="selected-color" class="color-helper-text">${helperText}</p>
     </div>
   `;
+}
+
+function applySelectedColor(colorObj) {
+  if (!colorObj || colorObj.available === false) {
+    return;
+  }
+
+  selectedColor = { 
+    name: colorObj.name, 
+    hex: colorObj.hex,
+    imageIndex: typeof colorObj.imageIndex === 'number' ? colorObj.imageIndex : null
+  };
+
+  const selectedColorEl = document.getElementById('selected-color');
+  if (selectedColorEl) {
+    selectedColorEl.innerHTML = `
+      <strong style="color: #D4AF37;">Color seleccionado:</strong> ${colorObj.name}
+    `;
+  }
+
+  document.querySelectorAll('.color-option').forEach(option => {
+    option.classList.toggle('selected', option.dataset.colorName === colorObj.name);
+  });
+
+  if (typeof colorObj.imageIndex === 'number' && currentProduct.images[colorObj.imageIndex]) {
+    const mainImage = document.getElementById('main-image');
+    mainImage.src = currentProduct.images[colorObj.imageIndex];
+
+    mainImage.onerror = function() {
+      this.src = `https://via.placeholder.com/500x500/1a1a1a/D4AF37?text=TICORE+${currentProduct.code}`;
+    };
+  }
 }
 
 function updateStockStatus(isAvailable) {
