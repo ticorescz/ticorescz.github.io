@@ -1,0 +1,40 @@
+<nav id="catalog-dock" class="catalog-dock" aria-label="Explorar catalogo">
+  <a class="catalog-dock__link" href="catalog.html" data-section="inicio" data-target="catalog.html">
+    <span class="catalog-dock__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 11.5 11.5 4l8.5 7.5"></path>
+        <path d="M5.5 10v8.5a1.5 1.5 0 0 0 1.5 1.5h3.5v-6h3.5v6H17a1.5 1.5 0 0 0 1.5-1.5V10"></path>
+      </svg>
+    </span>
+    <span>Inicio</span>
+  </a>
+  <a class="catalog-dock__link" href="hombre.html" data-section="hombre" data-panel="hombre" data-target="hombre.html">
+    <span class="catalog-dock__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M16 3h5v5"></path>
+        <path d="M21 3l-7.5 7.5"></path>
+        <circle cx="9" cy="15" r="5"></circle>
+      </svg>
+    </span>
+    <span>Hombre</span>
+  </a>
+  <a class="catalog-dock__link" href="mujer.html" data-section="mujer" data-panel="mujer" data-target="mujer.html">
+    <span class="catalog-dock__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="9" r="4.5"></circle>
+        <path d="M12 13.5v7"></path>
+        <path d="M9.5 17h5"></path>
+      </svg>
+    </span>
+    <span>Mujer</span>
+  </a>
+</nav>
+<script>
+(function () {
+  if (typeof window.initCatalogNav === 'function') {
+    const api = window.initCatalogNav(document.getElementById('catalog-dock'));
+    window.catalogNavController = api;
+    document.dispatchEvent(new CustomEvent('catalogNavReady', { detail: api }));
+  }
+})();
+</script>

@@ -3,162 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detalle del Producto - Ticoré</title>
+  <title>Detalle del Producto - Ticore</title>
   <link rel="icon" href="images/logo.svg" type="image/svg+xml">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="product-detail-body">
+<body class="product-detail">
+  <div data-include="header.html"></div>
 
-  <!-- Navbar Premium -->
-  <nav class="navbar-detail-premium">
-    <div class="nav-container-detail">
-      <img src="images/logoticore.png" alt="Logo Ticoré" class="nav-logo-detail" onclick="window.location.href='index.html'">
-      
-      <div class="nav-buttons-detail">
-        <button class="btn-back-catalog" onclick="window.location.href='catalog.html'">
-  <i class="fas fa-arrow-left"></i>
-  <span class="btn-text">Volver al Catálogo</span>
-</button>
-
-        <button class="btn-cart-detail" onclick="window.location.href='cart.html'">
-  <i class="fas fa-shopping-cart"></i>
-  <span class="btn-text">Carrito</span>
-  <span class="cart-badge-detail" id="cart-count">(0)</span>
-</button>
-
+  <main class="detail-shell">
+    <section class="detail-grid" aria-live="polite">
+      <div class="detail-gallery">
+        <img id="detail-main" src="" alt="" class="detail-main-image">
+        <div class="detail-thumbs" id="detail-thumbs"></div>
       </div>
-    </div>
-  </nav>
-
-  <!-- Contenedor Principal Premium -->
-  <div class="product-detail-container-premium">
-    
-    <!-- Breadcrumb Premium -->
-    <div class="breadcrumb-premium">
-      <a href="index.html"><i class="fas fa-home"></i> Inicio</a>
-      <span class="separator"><i class="fas fa-chevron-right"></i></span>
-      <a href="catalog.html">Catálogo</a>
-      <span class="separator"><i class="fas fa-chevron-right"></i></span>
-      <span class="current" id="breadcrumb-product">Producto</span>
-    </div>
-
-    <!-- Grid Principal -->
-    <div class="product-detail-grid">
-      
-      <!-- Columna Izquierda: Galería de Imágenes Premium -->
-      <div class="gallery-column-premium">
-        <div class="main-image-container-premium">
-          <img id="main-image" src="" alt="Producto" class="main-image-premium">
-          <div class="image-zoom-overlay">
-            <i class="fas fa-search-plus"></i>
-          </div>
-          <div class="badge-container-premium">
-            <span class="badge-premium" id="product-badge">NUEVO</span>
-          </div>
+      <div class="detail-info">
+        <span class="detail-badge" id="detail-category">Categoria</span>
+        <h1 class="detail-title" id="detail-title">Cargando...</h1>
+        <div class="detail-price" id="detail-price">Bs. 0</div>
+        <p class="detail-meta" id="detail-stock"></p>
+        <p class="detail-meta" id="detail-description"></p>
+        <div id="detail-colors"></div>
+        <div class="detail-actions">
+          <a class="btn-primary" id="detail-whatsapp" href="#" target="_blank" rel="noopener noreferrer">Whatsapp directo</a>
+          <a class="btn-secondary" href="catalog.html">Volver al catalogo</a>
         </div>
-        
-        <div class="thumbnails-container-premium" id="thumbnail-gallery">
-          <!-- Thumbnails generados dinámicamente -->
+        <div>
+          <h3>Especificaciones</h3>
+          <ul class="detail-features" id="detail-features"></ul>
         </div>
       </div>
+    </section>
 
-      <!-- Columna Derecha: Información del Producto Premium -->
-      <div class="info-column-premium">
-        
-        <!-- Categoría Badge -->
-        <div class="category-badge-premium" id="product-category">
-          ELEGANTE
-        </div>
+    <section class="detail-specs" aria-label="Resumen del reloj">
+      <h3>Resumen rapido</h3>
+      <div class="detail-specs-grid" id="detail-specs"></div>
+    </section>
+  </main>
 
-        <!-- Título Premium -->
-        <h1 class="product-title-premium" id="product-name">
-          Cargando...
-        </h1>
-
-        <!-- Precio Premium con Efectos -->
-        <div class="price-section-premium">
-          <div class="price-main" id="product-price">
-            Bs. 0
-          </div>
-          <div class="price-benefits">
-            <span class="benefit-item">
-              <i class="fas fa-shield-alt"></i> 5 Meses de Garantía
-            </span>
-            <span class="benefit-item">
-              <i class="fas fa-truck"></i> Envío Disponible
-            </span>
-          </div>
-        </div>
-        <div class="stock-status-banner" id="stock-status"></div>
-
-        <!-- Descripción Premium -->
-        <div class="description-section-premium">
-          <h3><i class="fas fa-info-circle"></i> Descripción</h3>
-          <p id="product-description"></p>
-        </div>
-
-        <!-- Selector de Color Premium -->
-        <div id="color-selector-container">
-          <!-- Se inserta dinámicamente -->
-        </div>
-
-        <!-- Selector de Cantidad Premium -->
-        <div class="quantity-section-premium quantity-selector">
-          <label><i class="fas fa-calculator"></i> Cantidad:</label>
-          <div class="quantity-controls-premium">
-            <button class="qty-btn-premium" onclick="changeQuantity(-1)">
-              <i class="fas fa-minus"></i>
-            </button>
-            <input type="number" id="quantity" value="1" min="1" max="10" readonly class="qty-input-premium">
-            <button class="qty-btn-premium" onclick="changeQuantity(1)">
-              <i class="fas fa-plus"></i>
-            </button>
-          </div>
-        </div>
-
-        <!-- Botones de Acción Premium -->
-        <div class="action-buttons-premium">
-          <button class="btn-add-cart-premium" onclick="addToCart()">
-            <i class="fas fa-cart-plus"></i>
-            Agregar al Carrito
-          </button>
-          <button class="btn-buy-now-premium" onclick="buyNow()">
-            <i class="fab fa-whatsapp"></i>
-            Comprar Ahora
-          </button>
-        </div>
-
-        <!-- Características Premium -->
-        <div class="features-section-premium">
-          <h3><i class="fas fa-star"></i> Características</h3>
-          <ul class="features-list-premium" id="product-features">
-            <!-- Se generan dinámicamente -->
-          </ul>
-        </div>
-
-        <!-- Trust Badges Premium -->
-        <div class="trust-badges-premium">
-          <div class="trust-item">
-            <i class="fas fa-lock"></i>
-            <span>Compra Segura</span>
-          </div>
-          <div class="trust-item">
-            <i class="fas fa-undo"></i>
-            <span>Garantía Incluida</span>
-          </div>
-          <div class="trust-item">
-            <i class="fas fa-headset"></i>
-            <span>Soporte 24/7</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-
+  <script src="js/include.js"></script>
+  <script src="js/products.js"></script>
   <script src="js/product-detail.js"></script>
 </body>
 </html>

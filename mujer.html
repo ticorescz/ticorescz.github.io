@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mujer | Ticore</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="catalog-page" data-gender="mujer">
+  <main class="page-shell">
+    <section class="catalog-section">
+      <div class="catalog-intro">
+        <div class="section-heading">
+          <span class="eyebrow">Coleccion Mujer</span>
+          <h2>Relojes con brillo propio</h2>
+          <p>Piezas elegantes y delicadas para acompanarte en cada momento.</p>
+        </div>
+      </div>
+
+      <div class="catalog-controls">
+        <div class="search-field">
+          <label for="watch-search">Buscar relojes</label>
+          <input type="text" id="watch-search" placeholder="Introduce modelo o detalle">
+        </div>
+        <div class="select-row">
+          <div class="select-field">
+            <label for="watch-category">Categoria</label>
+            <select id="watch-category">
+              <option value="all">Todas las categorias</option>
+              <option value="elegante">Elegante</option>
+              <option value="minimalista">Minimalista</option>
+              <option value="deportivo">Deportivo</option>
+              <option value="bold">Bold</option>
+            </select>
+          </div>
+          <div class="select-field">
+            <label for="watch-brand">Marca</label>
+            <select id="watch-brand">
+              <option value="all">Todas las marcas</option>
+              <option value="poedagar">Poedagar</option>
+            </select>
+          </div>
+        </div>
+        <div class="toggle-group">
+          <label class="toggle">
+            <input type="checkbox" id="stock-filter" checked>
+            <span>Ocultar relojes fuera de stock</span>
+          </label>
+          <label class="toggle">
+            <input type="checkbox" id="new-filter">
+            <span>Mostrar solo lanzamientos nuevos</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="pagination-controls" id="pagination-top">
+        <div class="page-size">
+          <label for="page-size-input">Tarjetas por pagina</label>
+          <input id="page-size-input" type="number" min="1" step="1" value="12">
+        </div>
+        <div class="pager">
+          <button id="page-prev" type="button" aria-label="Pagina anterior">&laquo;</button>
+          <span id="page-status" aria-live="polite">Pagina 1 de 1</span>
+          <button id="page-next" type="button" aria-label="Pagina siguiente">&raquo;</button>
+        </div>
+      </div>
+
+      <div id="no-results-message" class="empty-state" aria-live="polite">
+        <p>No tenemos relojes que coincidan con tu busqueda en este momento.</p>
+      </div>
+
+      <div class="fragrance-grid watch-grid" id="watch-grid"></div>
+
+      <div class="pagination-controls pagination-bottom" id="pagination-bottom">
+        <div class="page-size">
+          <label for="page-size-input-bottom">Tarjetas por pagina</label>
+          <input id="page-size-input-bottom" type="number" min="1" step="1" value="12">
+        </div>
+        <div class="pager">
+          <button id="page-prev-bottom" type="button" aria-label="Pagina anterior">&laquo;</button>
+          <span id="page-status-bottom" aria-live="polite">Pagina 1 de 1</span>
+          <button id="page-next-bottom" type="button" aria-label="Pagina siguiente">&raquo;</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/products.js"></script>
+  <script src="js/catalog-page.js"></script>
+</body>
+</html>
