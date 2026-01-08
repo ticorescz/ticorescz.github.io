@@ -22,6 +22,9 @@
   const newToggle = document.getElementById('new-filter');
   const emptyState = document.getElementById('no-results-message');
 
+  const filtersToggle = document.querySelector('.catalog-controls__toggle');
+  const filtersPanel = document.querySelector('.catalog-controls__panel');
+
   const pageSizeInputs = [
     document.getElementById('page-size-input'),
     document.getElementById('page-size-input-bottom')
@@ -93,10 +96,10 @@
     return `
       <article class="decant${outOfStock ? ' sin-stock' : ''}" data-id="${product.id}" data-name="${dataName}" data-tags="${tags}"${outOfStock ? ' data-stock="out"' : ''}${isNew ? ' data-new="true"' : ''} tabindex="0" role="button" aria-label="Ver detalles de ${product.title}">
         <img src="${getStockThumbnail(product)}" alt="${product.title}" loading="lazy" decoding="async">
-        <h3><strong>${product.brandLabel || 'Poedagar'}</strong></h3>
-        <p>${name}</p>
-        <p>${product.shortDescription}</p>
-        <p><span class="price-label">Precio</span> Bs. ${product.price}</p>
+        <p class="card-brand">${product.brandLabel || 'Poedagar'}</p>
+        <h3 class="card-model">${name}</h3>
+        <p class="card-short">${product.shortDescription}</p>
+        <p><span class="price-label">Precio</span> <span class="card-price">Bs. ${product.price}</span></p>
         ${badges.length ? `<div class="etiquetas">${badges.join('')}</div>` : ''}
       </article>
     `;
@@ -270,10 +273,21 @@
     });
   }
 
+  function initFiltersToggle() {
+    if (!filtersToggle || !filtersPanel) return;
+
+    filtersToggle.addEventListener('click', () => {
+      const isOpen = filtersPanel.classList.toggle('is-open');
+      filtersToggle.setAttribute('aria-expanded', String(isOpen));
+      filtersToggle.classList.toggle('is-open', isOpen);
+    });
+  }
+
   function init() {
     const cards = renderCards();
     if (!cards.length) return;
     initFilters(cards);
+    initFiltersToggle();
     initCardActions();
     updatePageSize(state.pageSize);
     refresh(cards);

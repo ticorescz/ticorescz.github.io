@@ -394,6 +394,38 @@ body.catalog-page main.page-shell {
   gap: 20px;
 }
 
+.catalog-controls__toggle {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  border: 1px solid var(--divider);
+  background: rgba(12, 12, 12, 0.92);
+  color: var(--ink);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.catalog-controls__toggle::after {
+  content: "v";
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.catalog-controls__toggle.is-open::after {
+  transform: rotate(180deg);
+}
+
+.catalog-controls__panel {
+  display: grid;
+  gap: 20px;
+}
+
 .search-field,
 .select-field {
   display: flex;
@@ -576,13 +608,22 @@ body.catalog-page main.page-shell {
   opacity: 0.7;
 }
 
-.decant h3 {
+.decant .card-model {
   margin: 0;
-  font-size: 1.05rem;
-  letter-spacing: 0.08em;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   overflow-wrap: anywhere;
   hyphens: auto;
+}
+
+.decant .card-brand {
+  margin: 0;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted-ink);
 }
 
 .decant p {
@@ -598,6 +639,14 @@ body.catalog-page main.page-shell {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent);
+  font-size: 0.72rem;
+}
+
+.decant .card-price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.02em;
 }
 
 .etiquetas {
@@ -1097,12 +1146,41 @@ body.swipe-hub {
     justify-content: space-between;
   }
 
+  .catalog-controls__toggle {
+    display: inline-flex;
+  }
+
+  .catalog-controls__panel {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-8px);
+    overflow: hidden;
+    pointer-events: none;
+    transition: max-height 0.35s ease, opacity 0.25s ease, transform 0.35s ease;
+  }
+
+  .catalog-controls__panel.is-open {
+    max-height: 800px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .card-short {
+    display: none;
+  }
+
   .fragrance-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 18px;
   }
 
   .home-actions {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) and (orientation: portrait) {
+  .fragrance-grid {
     grid-template-columns: 1fr;
   }
 }

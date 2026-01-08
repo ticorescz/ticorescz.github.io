@@ -53,8 +53,8 @@ window.initCatalogNav = function initCatalogNav(navEl) {
       }
 
       const panel = link.dataset.panel || '';
-      const isPanelMatch = panel && currentHash && panel === currentHash && linkPath === normalized;
-      const isActive = isPanelMatch || (!panel && linkPath === normalized);
+      const isPanelMatch = panel && currentHash && panel === currentHash;
+      const isActive = linkPath === normalized && (!panel || !currentHash || isPanelMatch);
 
       link.classList.toggle('is-active', isActive);
       if (isActive) {

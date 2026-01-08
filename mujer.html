@@ -20,38 +20,43 @@
       </div>
 
       <div class="catalog-controls">
-        <div class="search-field">
-          <label for="watch-search">Buscar relojes</label>
-          <input type="text" id="watch-search" placeholder="Introduce modelo o detalle">
-        </div>
-        <div class="select-row">
-          <div class="select-field">
-            <label for="watch-category">Categoria</label>
-            <select id="watch-category">
-              <option value="all">Todas las categorias</option>
-              <option value="elegante">Elegante</option>
-              <option value="minimalista">Minimalista</option>
-              <option value="deportivo">Deportivo</option>
-              <option value="bold">Bold</option>
-            </select>
+        <button class="catalog-controls__toggle" type="button" aria-expanded="false" aria-controls="catalog-filters">
+          Filtros y busqueda
+        </button>
+        <div class="catalog-controls__panel" id="catalog-filters">
+          <div class="search-field">
+            <label for="watch-search">Buscar relojes</label>
+            <input type="text" id="watch-search" placeholder="Introduce modelo o detalle">
           </div>
-          <div class="select-field">
-            <label for="watch-brand">Marca</label>
-            <select id="watch-brand">
-              <option value="all">Todas las marcas</option>
-              <option value="poedagar">Poedagar</option>
-            </select>
+          <div class="select-row">
+            <div class="select-field">
+              <label for="watch-category">Categoria</label>
+              <select id="watch-category">
+                <option value="all">Todas las categorias</option>
+                <option value="elegante">Elegante</option>
+                <option value="minimalista">Minimalista</option>
+                <option value="deportivo">Deportivo</option>
+                <option value="bold">Bold</option>
+              </select>
+            </div>
+            <div class="select-field">
+              <label for="watch-brand">Marca</label>
+              <select id="watch-brand">
+                <option value="all">Todas las marcas</option>
+                <option value="poedagar">Poedagar</option>
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="toggle-group">
-          <label class="toggle">
-            <input type="checkbox" id="stock-filter" checked>
-            <span>Ocultar relojes fuera de stock</span>
-          </label>
-          <label class="toggle">
-            <input type="checkbox" id="new-filter">
-            <span>Mostrar solo lanzamientos nuevos</span>
-          </label>
+          <div class="toggle-group">
+            <label class="toggle">
+              <input type="checkbox" id="stock-filter" checked>
+              <span>Ocultar relojes fuera de stock</span>
+            </label>
+            <label class="toggle">
+              <input type="checkbox" id="new-filter">
+              <span>Mostrar solo lanzamientos nuevos</span>
+            </label>
+          </div>
         </div>
       </div>
 
