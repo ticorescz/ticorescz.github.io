@@ -250,6 +250,7 @@ body.is-home-panel .catalog-dock {
   text-align: center;
   overflow: hidden;
   padding-top: var(--header-height);
+  padding-bottom: clamp(90px, 12vw, 160px);
 }
 
 html,
@@ -308,6 +309,12 @@ body.home-hub {
   text-transform: uppercase;
   font-size: 0.7rem;
   color: var(--accent);
+}
+
+@media (max-height: 740px) {
+  .scroll-indicator {
+    display: none;
+  }
 }
 
 .scroll-indicator span {
@@ -369,6 +376,25 @@ body.home-hub {
   width: 100%;
   height: 100%;
   display: block;
+}
+
+.social-logo-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.social-logo-button {
+  display: inline-flex;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.social-logo-button img {
+  width: 52px;
+  height: 52px;
+  display: block;
+  object-fit: contain;
 }
 
 /* About / Nosotros */
@@ -543,17 +569,19 @@ body.catalog-page main.page-shell {
   display: flex;
   flex-direction: column;
   gap: clamp(56px, 8vw, 96px);
-  padding-block: clamp(48px, 8vw, 104px) 140px;
+  padding-block: clamp(8px, 6vw, 52px) 100px;
+  width: min(1280px, 96vw);
+  padding-inline: clamp(8px, 3vw, 24px);
 }
 
 .catalog-section {
   background: linear-gradient(135deg, rgba(22, 22, 22, 0.96), rgba(10, 10, 10, 0.96));
   border-radius: 28px;
   border: 1px solid var(--divider);
-  padding: clamp(28px, 6vw, 52px);
+  padding: clamp(28px, 5vw, 48px);
   display: flex;
   flex-direction: column;
-  gap: clamp(28px, 5vw, 52px);
+  gap: clamp(24px, 4.5vw, 44px);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
   background-image: radial-gradient(circle at top right, rgba(212, 175, 55, 0.12), transparent 50%);
 }
@@ -602,7 +630,8 @@ body.catalog-page main.page-shell {
   font-size: 0.95rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-  text-transform: uppercase;
+  text-transform: none;
+  font-family: inherit;
   transition: background 0.3s ease, border-color 0.3s ease;
 }
 
@@ -1392,6 +1421,16 @@ body.swipe-hub {
 
   .home-actions {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 701px) {
+  body.home-hub .home-actions .home-action--whatsapp {
+    grid-column: 1 / -1;
+  }
+
+  body.home-hub .home-actions .social-logo-row {
+    grid-column: 1 / -1;
   }
 }
 
