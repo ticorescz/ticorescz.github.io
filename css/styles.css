@@ -412,13 +412,17 @@ body.catalog-page main.page-shell {
 }
 
 .catalog-controls__toggle::after {
-  content: "v";
-  font-size: 0.9rem;
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
   transition: transform 0.3s ease;
 }
 
 .catalog-controls__toggle.is-open::after {
-  transform: rotate(180deg);
+  transform: rotate(225deg);
 }
 
 .catalog-controls__panel {
@@ -515,6 +519,19 @@ body.catalog-page main.page-shell {
   color: var(--muted-ink);
 }
 
+.pagination-controls .page-size__label {
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-ink);
+}
+
+.pagination-controls .page-size__value {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
 .pagination-controls input[type="number"] {
   width: 88px;
   padding: 10px 12px;
@@ -574,7 +591,7 @@ body.catalog-page main.page-shell {
 .fragrance-grid {
   display: grid;
   gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
 }
 
 .decant {
@@ -1164,6 +1181,10 @@ body.swipe-hub {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+  }
+
+  .catalog-controls--collapsed + .pagination-controls {
+    margin-top: -12px;
   }
 
   .card-short {

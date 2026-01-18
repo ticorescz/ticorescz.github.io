@@ -24,11 +24,7 @@
 
   const filtersToggle = document.querySelector('.catalog-controls__toggle');
   const filtersPanel = document.querySelector('.catalog-controls__panel');
-
-  const pageSizeInputs = [
-    document.getElementById('page-size-input'),
-    document.getElementById('page-size-input-bottom')
-  ].filter(Boolean);
+  const filtersWrapper = document.querySelector('.catalog-controls');
 
   const pagePrevButtons = [
     document.getElementById('page-prev'),
@@ -112,16 +108,6 @@
       : products.filter(item => item.gender === gender);
     grid.innerHTML = filteredByGender.map(buildCard).join('');
     return Array.from(grid.querySelectorAll('.decant'));
-  }
-
-  function updatePageSize(value) {
-    const parsed = parseInt(value, 10);
-    state.pageSize = Number.isFinite(parsed) && parsed > 0 ? parsed : 12;
-    pageSizeInputs.forEach(input => {
-      if (input && input.value !== String(state.pageSize)) {
-        input.value = String(state.pageSize);
-      }
-    });
   }
 
   function applyFilters(cards) {
@@ -250,14 +236,6 @@
       refresh(cards);
     });
 
-    pageSizeInputs.forEach(input => {
-      input.addEventListener('change', event => {
-        updatePageSize(event.target.value);
-        state.page = 1;
-        refresh(cards);
-      });
-    });
-
     pagePrevButtons.forEach(button => {
       button.addEventListener('click', () => {
         state.page -= 1;
@@ -276,10 +254,19 @@
   function initFiltersToggle() {
     if (!filtersToggle || !filtersPanel) return;
 
+    const syncFiltersState = () => {
+      if (!filtersWrapper) return;
+      const isOpen = filtersPanel.classList.contains('is-open');
+      filtersWrapper.classList.toggle('catalog-controls--collapsed', !isOpen);
+    };
+
+    syncFiltersState();
+
     filtersToggle.addEventListener('click', () => {
       const isOpen = filtersPanel.classList.toggle('is-open');
       filtersToggle.setAttribute('aria-expanded', String(isOpen));
       filtersToggle.classList.toggle('is-open', isOpen);
+      syncFiltersState();
     });
   }
 
@@ -289,7 +276,6 @@
     initFilters(cards);
     initFiltersToggle();
     initCardActions();
-    updatePageSize(state.pageSize);
     refresh(cards);
   }
 
