@@ -7,7 +7,7 @@ window.TICORE_PRODUCTS = [
     gender: "hombre",
     brand: "poedagar",
     brandLabel: "Poedagar",
-    inStock: true,
+    inStock: false,
     price: 250,
     images: [
       "images/pd986-1.png",
@@ -125,7 +125,7 @@ window.TICORE_PRODUCTS = [
     gender: "mujer",
     brand: "poedagar",
     brandLabel: "Poedagar",
-    inStock: true,
+    inStock: false,
     price: 250,
     images: [
       "images/pd708m-1.png",
@@ -182,11 +182,13 @@ window.TICORE_PRODUCTS = [
     gender: "mujer",
     brand: "poedagar",
     brandLabel: "Poedagar",
-    inStock: false,
+    inStock: true,
     price: 260,
     images: [
       "images/pd786m-1.png",
-      "images/pd786m-2.png"
+      "images/pd786m-2.png",
+      "images/pd786m-3.png",
+      "images/pd786m-4.png"
     ],
     description: "Reloj femenino elegante con calendario completo.",
     shortDescription: "Sofisticacion femenina",
@@ -198,8 +200,8 @@ window.TICORE_PRODUCTS = [
     ],
     colors: [
       { name: "Dorado", hex: "#D4AF37", imageIndex: 0, available: false },
-      { name: "Blanca", hex: "#FFFFFF", imageIndex: 1, available: false },
-      { name: "Negra", hex: "#000000", imageIndex: 2, available: false },
+      { name: "Blanca", hex: "#FFFFFF", imageIndex: 2 },
+      { name: "Negra", hex: "#000000", imageIndex: 1, available: false },
       { name: "Bronce", hex: "#F5F5DC", imageIndex: 3, available: false }
     ],
     badge: "ELEGANTE"
@@ -296,6 +298,7 @@ window.TICORE_PRODUCTS = [
     gender: "hombre",
     brand: "poedagar",
     brandLabel: "Poedagar",
+    inStock: false,
     price: 310,
     images: [
       "images/pd821-1.png",
