@@ -723,7 +723,7 @@ window.TICORE_PRODUCTS = [
     "features": [
       "Caja rectangular slim",
       "Movimiento de cuarzo",
-      "Resistencia al agua 30m",
+      "Resistencia al agua 3ATM",
       "Calendario automatico",
       "Manecillas luminosas",
       "Correa tipo malla de acero inoxidable"
