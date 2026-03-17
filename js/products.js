@@ -48,6 +48,7 @@ window.TICORE_PRODUCTS = [
     "id": 2,
     "title": "Poedagar PD 921 Cuero",
     "code": "PD-921-CUERO",
+    "aPedido": true,
     "category": "elegante",
     "gender": "hombre",
     "brand": "poedagar",
@@ -132,6 +133,7 @@ window.TICORE_PRODUCTS = [
     "brand": "poedagar",
     "brandLabel": "Poedagar",
     "inStock": true,
+    "aPedido": true,
     "price": 230,
     "images": [
       "images/pd829-1.png",
@@ -271,17 +273,20 @@ window.TICORE_PRODUCTS = [
       {
         "name": "Blanca",
         "hex": "#FFFFFF",
-        "imageIndex": 2
+        "imageIndex": 2,
+        "aPedido": true
       },
       {
         "name": "Negra",
         "hex": "#000000",
-        "imageIndex": 1
+        "imageIndex": 1,
+        "aPedido": true
       },
       {
         "name": "Bronce",
         "hex": "#CD7F32",
-        "imageIndex": 3
+        "imageIndex": 3,
+        "aPedido": true
       },
       {
         "name": "Negro/Oro",
@@ -369,6 +374,7 @@ window.TICORE_PRODUCTS = [
     "brand": "poedagar",
     "brandLabel": "Poedagar",
     "inStock": true,
+    "aPedido": true,
     "price": 260,
     "images": [
       "images/pd808-1.png",
@@ -407,6 +413,7 @@ window.TICORE_PRODUCTS = [
     "brand": "poedagar",
     "brandLabel": "Poedagar",
     "inStock": true,
+    "aPedido": true,
     "price": 260,
     "images": [
       "images/pd821-1.png",
@@ -445,6 +452,7 @@ window.TICORE_PRODUCTS = [
     "brand": "poedagar",
     "brandLabel": "Poedagar",
     "inStock": true,
+    "aPedido": true,
     "price": 390,
     "images": [
       "images/pd928-1.png",
@@ -481,6 +489,7 @@ window.TICORE_PRODUCTS = [
     "brand": "poedagar",
     "brandLabel": "Poedagar",
     "inStock": true,
+    "aPedido": true,
     "price": 390,
     "images": [
       "images/pd815-1.png"
@@ -503,8 +512,8 @@ window.TICORE_PRODUCTS = [
   },
   {
     "id": 14,
-    "title": "Poedagar PD 365 M Cuero",
-    "code": "PD-365-M",
+    "title": "Poedagar PD 365 M Acero",
+    "code": "PD-365-M-ACERO",
     "category": "elegante",
     "gender": "mujer",
     "brand": "poedagar",
@@ -516,12 +525,12 @@ window.TICORE_PRODUCTS = [
       "images/pd365m-2.png"
     ],
     "description": "Reloj femenino elegante con diseno vintage-moderno.",
-    "shortDescription": "PD365 M en cuero",
+    "shortDescription": "PD365 M en acero",
     "features": [
       "Caja de 31mm",
       "Movimiento de cuarzo",
       "Cristal mineral",
-      "Correa de cuero",
+      "Brazalete de acero inoxidable",
       "Resistencia al agua 3ATM",
       "Diseno vintage-moderno"
     ],
@@ -641,7 +650,8 @@ window.TICORE_PRODUCTS = [
       {
         "name": "Azul Marino",
         "hex": "#000080",
-        "imageIndex": 0
+        "imageIndex": 0,
+        "aPedido": true
       },
       {
         "name": "Negro/Dorado",
@@ -732,12 +742,14 @@ window.TICORE_PRODUCTS = [
       {
         "name": "Blanco",
         "hex": "#FFFFFF",
-        "imageIndex": 0
+        "imageIndex": 0,
+        "aPedido": true
       },
       {
         "name": "Dorado",
         "hex": "#D4AF37",
-        "imageIndex": 1
+        "imageIndex": 1,
+        "aPedido": true
       },
       {
         "name": "Negro",
@@ -870,7 +882,8 @@ window.TICORE_PRODUCTS = [
         "name": "Blanco/Dorado",
         "hex": "#FFFFFF",
         "hex2": "#D4AF37",
-        "imageIndex": 2
+        "imageIndex": 2,
+        "aPedido": true
       }
     ],
     "badge": "NUEVO",
@@ -984,7 +997,8 @@ window.TICORE_PRODUCTS = [
       {
         "name": "Azul",
         "hex": "#1E3A8A",
-        "imageIndex": 1
+        "imageIndex": 1,
+        "aPedido": true
       }
     ],
     "badge": "NUEVO",
@@ -992,8 +1006,8 @@ window.TICORE_PRODUCTS = [
   },
   {
     "id": 27,
-    "code": "PD-312-M-MALLA",
-    "title": "Poedagar PD 312 M Malla",
+    "code": "PD-312-M-ACERO",
+    "title": "Poedagar PD 312 M Acero",
     "category": "elegante",
     "gender": "mujer",
     "brand": "poedagar",
@@ -1004,6 +1018,45 @@ window.TICORE_PRODUCTS = [
       "images/PD312 Oro.png"
     ],
     "description": "Reloj femenino con estilo joya y pulsera tipo malla.",
+    "shortDescription": "Femenino en acero",
+    "features": [
+      "Caja de aleacion",
+      "Movimiento de cuarzo",
+      "Resistencia al agua 3ATM",
+      "Calendario de fecha y semana",
+      "Manecillas luminosas",
+      "Pulsera de malla de acero inoxidable"
+    ],
+    "colors": [
+      {
+        "name": "Blanco",
+        "hex": "#FFFFFF",
+        "imageIndex": 0,
+        "aPedido": true
+      },
+      {
+        "name": "Oro",
+        "hex": "#D4AF37",
+        "imageIndex": 1
+      }
+    ],
+    "badge": "NUEVO",
+    "inStock": true
+  },
+  {
+    "id": 28,
+    "code": "PD-312-M-MALLA",
+    "title": "Poedagar PD 312 M Malla",
+    "category": "elegante",
+    "gender": "mujer",
+    "brand": "poedagar",
+    "brandLabel": "Poedagar",
+    "price": 280,
+    "images": [
+      "images/PD312N Blanco.png",
+      "images/PD312N Oro.png"
+    ],
+    "description": "Version femenina del PD312 con pulsera tipo malla.",
     "shortDescription": "Femenino en malla",
     "features": [
       "Caja de aleacion",
@@ -1029,47 +1082,9 @@ window.TICORE_PRODUCTS = [
     "inStock": true
   },
   {
-    "id": 28,
+    "id": 29,
     "code": "PD-312-M-CUERO",
     "title": "Poedagar PD 312 M Cuero",
-    "category": "elegante",
-    "gender": "mujer",
-    "brand": "poedagar",
-    "brandLabel": "Poedagar",
-    "price": 280,
-    "images": [
-      "images/PD312N Blanco.png",
-      "images/PD312N Oro.png"
-    ],
-    "description": "Version femenina del PD312 con correa de cuero.",
-    "shortDescription": "Femenino en cuero",
-    "features": [
-      "Caja de aleacion",
-      "Movimiento de cuarzo",
-      "Resistencia al agua 3ATM",
-      "Calendario de fecha y semana",
-      "Manecillas luminosas",
-      "Correa de cuero"
-    ],
-    "colors": [
-      {
-        "name": "Blanco",
-        "hex": "#FFFFFF",
-        "imageIndex": 0
-      },
-      {
-        "name": "Oro",
-        "hex": "#D4AF37",
-        "imageIndex": 1
-      }
-    ],
-    "badge": "NUEVO",
-    "inStock": true
-  },
-  {
-    "id": 29,
-    "code": "PD-312-M-ACERO",
-    "title": "Poedagar PD 312 M Acero",
     "category": "elegante",
     "gender": "mujer",
     "brand": "poedagar",
@@ -1079,21 +1094,22 @@ window.TICORE_PRODUCTS = [
       "images/PD312C Blanco.png",
       "images/PD312C Oro.png"
     ],
-    "description": "Version femenina del PD312 con brazalete de acero.",
-    "shortDescription": "Femenino en acero",
+    "description": "Version femenina del PD312 con correa de cuero.",
+    "shortDescription": "Femenino en cuero",
     "features": [
       "Caja de aleacion",
       "Movimiento de cuarzo",
       "Resistencia al agua 3ATM",
       "Calendario de fecha y semana",
       "Manecillas luminosas",
-      "Brazalete de acero inoxidable"
+      "Correa de cuero genuino"
     ],
     "colors": [
       {
         "name": "Blanco",
         "hex": "#FFFFFF",
-        "imageIndex": 0
+        "imageIndex": 0,
+        "aPedido": true
       },
       {
         "name": "Oro",
@@ -1106,8 +1122,8 @@ window.TICORE_PRODUCTS = [
   },
   {
     "id": 30,
-    "code": "PD-365-M-ACERO",
-    "title": "Poedagar PD 365 M Acero",
+    "code": "PD-365-M-CUERO",
+    "title": "Poedagar PD 365 M Cuero",
     "category": "elegante",
     "gender": "mujer",
     "brand": "poedagar",
@@ -1117,13 +1133,13 @@ window.TICORE_PRODUCTS = [
       "images/PD365C Blanco.png",
       "images/PD365C Oro.png"
     ],
-    "description": "Version en acero del PD365 M con look refinado.",
-    "shortDescription": "PD365 M en acero",
+    "description": "Version en cuero del PD365 M con look refinado.",
+    "shortDescription": "PD365 M en cuero",
     "features": [
       "Caja de 31mm",
       "Movimiento de cuarzo",
       "Cristal mineral",
-      "Brazalete de acero inoxidable",
+      "Correa de cuero genuino",
       "Resistencia al agua 3ATM",
       "Diseno vintage-moderno"
     ],
@@ -1131,7 +1147,8 @@ window.TICORE_PRODUCTS = [
       {
         "name": "Blanco",
         "hex": "#FFFFFF",
-        "imageIndex": 0
+        "imageIndex": 0,
+        "aPedido": true
       },
       {
         "name": "Oro",
@@ -1169,7 +1186,8 @@ window.TICORE_PRODUCTS = [
       {
         "name": "Blanco",
         "hex": "#FFFFFF",
-        "imageIndex": 0
+        "imageIndex": 0,
+        "aPedido": true
       },
       {
         "name": "Oro",

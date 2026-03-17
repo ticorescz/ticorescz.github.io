@@ -77,6 +77,7 @@
     const tags = [product.category, product.gender, product.brand].filter(Boolean).join(' ');
     const outOfStock = product.inStock === false;
     const isNew = typeof product.badge === 'string' && product.badge.toLowerCase() === 'nuevo';
+    const aPedido = product.aPedido === true || (Array.isArray(product.colors) && product.colors.some(c => c && c.aPedido === true));
     const badges = [];
 
     if (product.badge && !isNew) {
@@ -87,6 +88,9 @@
     }
     if (outOfStock) {
       badges.push('<span class="etiqueta fuera-de-stock">Fuera de stock</span>');
+    }
+    if (aPedido && !outOfStock) {
+      badges.push('<span class="etiqueta a-pedido">A Pedido</span>');
     }
 
     return `

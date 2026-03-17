@@ -922,6 +922,11 @@ body.catalog-page main.page-shell {
   color: var(--ink);
 }
 
+.etiqueta.a-pedido {
+  background: rgba(255, 165, 0, 0.15);
+  color: #FFB347;
+}
+
 .pag-hidden {
   display: none !important;
 }
@@ -1131,9 +1136,15 @@ body.catalog-page main.page-shell {
   font-size: 0.6rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  white-space: nowrap;
   padding: 3px 6px;
   border-radius: 999px;
   border: 1px solid rgba(212, 175, 55, 0.35);
+}
+
+.color-status-tag--apedido {
+  color: #FFB347;
+  border-color: rgba(255, 165, 0, 0.35);
 }
 
 .color-helper-text {

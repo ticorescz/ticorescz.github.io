@@ -55,7 +55,7 @@
       { label: 'Categoria', value: product.category || 'N/A' },
       { label: 'Genero', value: product.gender || 'N/A' },
       { label: 'Marca', value: product.brandLabel || product.brand || 'N/A' },
-      { label: 'Stock', value: product.inStock === false ? 'Fuera de stock' : 'Disponible' }
+      { label: 'Stock', value: product.inStock === false ? 'Fuera de stock' : (product.aPedido === true ? 'A Pedido' : 'Disponible') }
     ];
 
     specs.innerHTML = entries.map(entry => `
@@ -74,22 +74,31 @@
     }
 
     const hasUnavailable = list.some(color => color && color.available === false);
-    const helperText = hasUnavailable
-      ? 'Selecciona un color disponible (los agotados estan indicados).'
-      : 'Selecciona un color';
+    const hasAPedido = list.some(color => color && color.aPedido === true);
+    let helperText = 'Selecciona un color';
+    if (hasUnavailable && hasAPedido) {
+      helperText = 'Selecciona un color (los agotados y a pedido estan indicados).';
+    } else if (hasUnavailable) {
+      helperText = 'Selecciona un color disponible (los agotados estan indicados).';
+    } else if (hasAPedido) {
+      helperText = 'Selecciona un color (algunos son a pedido).';
+    }
 
     const options = list.map(color => {
       const backgroundStyle = color.hex2
         ? `linear-gradient(90deg, ${color.hex} 50%, ${color.hex2} 50%)`
         : color.hex;
       const isAvailable = color.available !== false;
+      const isAPedido = color.aPedido === true;
       return `
         <div class="color-option ${isAvailable ? '' : 'color-option-disabled'}"
              style="background: ${backgroundStyle};"
              data-color-name="${color.name || ''}"
              data-color-hex="${color.hex || ''}"
+             data-a-pedido="${isAPedido ? 'true' : 'false'}"
              ${isAvailable ? `data-selectable=\"true\"` : 'aria-disabled=\"true\"'}>
           ${!isAvailable ? '<span class="color-status-tag">Agotado</span>' : ''}
+          ${isAvailable && isAPedido ? '<span class="color-status-tag color-status-tag--apedido">A Pedido</span>' : ''}
         </div>
       `;
     }).join('');
@@ -112,11 +121,23 @@
           alert('Ese color esta agotado. Por favor elige otro tono.');
           return;
         }
-        selectedColor = { name: colorName, hex: colorHex };
+        const isColorAPedido = option.dataset.aPedido === 'true';
+        selectedColor = { name: colorName, hex: colorHex, aPedido: isColorAPedido };
         optionEls.forEach(el => el.classList.toggle('selected', el === option));
         const selectedEl = document.getElementById('selected-color');
         if (selectedEl) {
-          selectedEl.innerHTML = `<strong style=\"color: #D4AF37;\">Color seleccionado:</strong> ${colorName}`;
+          const apedidoNote = isColorAPedido ? ' <span style="color:#FFB347;">(A Pedido)</span>' : '';
+          selectedEl.innerHTML = `<strong style=\"color: #D4AF37;\">Color seleccionado:</strong> ${colorName}${apedidoNote}`;
+        }
+        if (stock) {
+          const product = products.find(item => item.id === id) || products[0];
+          if (product.inStock === false) {
+            stock.textContent = 'Fuera de stock';
+          } else if (isColorAPedido || product.aPedido === true) {
+            stock.textContent = 'A Pedido';
+          } else {
+            stock.textContent = 'Disponible para entrega inmediata';
+          }
         }
 
         const product = products.find(item => item.id === id) || products[0];
@@ -147,7 +168,15 @@
     if (title) title.textContent = name;
     if (price) price.textContent = `Bs. ${product.price}`;
     if (category) category.textContent = product.category ? product.category.toUpperCase() : 'Categoria';
-    if (stock) stock.textContent = product.inStock === false ? 'Fuera de stock' : 'Disponible para entrega inmediata';
+    if (stock) {
+      if (product.inStock === false) {
+        stock.textContent = 'Fuera de stock';
+      } else if (product.aPedido === true) {
+        stock.textContent = 'A Pedido';
+      } else {
+        stock.textContent = 'Disponible para entrega inmediata';
+      }
+    }
     if (description) description.textContent = product.description || '';
 
     setMainImage(product.images?.[0] || '', name);
