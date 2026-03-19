@@ -1147,6 +1147,19 @@ body.catalog-page main.page-shell {
   border-color: rgba(255, 165, 0, 0.35);
 }
 
+.apedido-notice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 165, 0, 0.1);
+  border: 1px solid rgba(255, 179, 71, 0.35);
+  border-radius: 10px;
+  padding: 10px 14px;
+  color: #FFB347;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
 .color-helper-text {
   color: var(--muted-ink);
   font-size: 0.85rem;

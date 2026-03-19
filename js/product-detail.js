@@ -16,6 +16,7 @@
   const specs = document.getElementById('detail-specs');
   const colors = document.getElementById('detail-colors');
   const whatsapp = document.getElementById('detail-whatsapp');
+  const apedidoNotice = document.getElementById('detail-apedido-notice');
   let selectedColor = null;
 
   function setMainImage(src, alt) {
@@ -177,6 +178,17 @@
         stock.textContent = 'Disponible para entrega inmediata';
       }
     }
+    const isAPedido = product.aPedido === true ||
+      (Array.isArray(product.colors) && product.colors.some(c => c && c.aPedido === true));
+    if (apedidoNotice) {
+      if (isAPedido) {
+        apedidoNotice.innerHTML = '<i class="fas fa-clock"></i> Sólo a pedido, no disponibles para entrega inmediata';
+        apedidoNotice.removeAttribute('hidden');
+      } else {
+        apedidoNotice.setAttribute('hidden', '');
+      }
+    }
+
     if (description) description.textContent = product.description || '';
 
     setMainImage(product.images?.[0] || '', name);
