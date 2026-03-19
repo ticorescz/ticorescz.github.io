@@ -118,7 +118,8 @@ window.TICORE_PRODUCTS = [
       },
       {
         "name": "Azul/Plata",
-        "hex": "#1e3a8a"
+        "hex": "#1e3a8a",
+        "aPedido": true
       }
     ],
     "badge": "PREMIUM",
@@ -541,7 +542,8 @@ window.TICORE_PRODUCTS = [
       },
       {
         "name": "Blanca",
-        "hex": "#FFFFFF"
+        "hex": "#FFFFFF",
+        "aPedido": true
       }
     ],
     "badge": "VINTAGE"
@@ -916,7 +918,8 @@ window.TICORE_PRODUCTS = [
       {
         "name": "Negro",
         "hex": "#111111",
-        "imageIndex": 0
+        "imageIndex": 0,
+        "aPedido": true
       },
       {
         "name": "Azul",
@@ -959,7 +962,8 @@ window.TICORE_PRODUCTS = [
       {
         "name": "Negro",
         "hex": "#111111",
-        "imageIndex": 1
+        "imageIndex": 1,
+        "aPedido": true
       }
     ],
     "badge": "NUEVO",
