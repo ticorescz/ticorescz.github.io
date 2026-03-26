@@ -250,9 +250,14 @@
     const handLen    = Math.hypot(mcp9.x - wrist.x, mcp9.y - wrist.y);
     const targetSize = handLen * 0.90;
 
-    // ── Rotation: 12-o'clock toward fingers ─────────────────────────────────
+    // ── Arm direction & watch center offset toward forearm ───────────────────
     const dx = mcp9.x - wrist.x;
     const dy = mcp9.y - wrist.y;
+    // Unit vector pointing from fingers → wrist (toward forearm)
+    const invLen  = 1 / (handLen || 1);
+    // Shift watch center 40% of handLen toward the forearm
+    const watchCX = wrist.x - dx * invLen * handLen * 0.40;
+    const watchCY = wrist.y - dy * invLen * handLen * 0.40;
     // Rotation: track arm direction; no extra offset (image strap is horizontal)
     const targetAngle = Math.atan2(dy, dx);
 
@@ -265,8 +270,8 @@
     const targetFS = Math.max(0.55, 1.0 - armDepth * 3.5);
 
     // ── Lerp smoothing ────────────────────────────────────────────────────────
-    sX     = sX     === null ? wrist.x      : sX     + (wrist.x      - sX)     * LERP;
-    sY     = sY     === null ? wrist.y      : sY     + (wrist.y      - sY)     * LERP;
+    sX     = sX     === null ? watchCX      : sX     + (watchCX      - sX)     * LERP;
+    sY     = sY     === null ? watchCY      : sY     + (watchCY      - sY)     * LERP;
     sSz    = sSz    === null ? targetSize   : sSz    + (targetSize   - sSz)    * LERP;
     sSkewX = sSkewX === null ? targetSkewX  : sSkewX + (targetSkewX  - sSkewX) * LERP;
     sFS    = sFS    === null ? targetFS     : sFS    + (targetFS     - sFS)    * LERP;
