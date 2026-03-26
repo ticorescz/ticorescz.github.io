@@ -1458,6 +1458,358 @@ body.swipe-hub {
   }
 }
 
+/* ===========================
+   PROBADOR VIRTUAL (AR)
+   =========================== */
+
+.probador-page {
+  overflow: hidden;
+  background: #000;
+}
+
+.probador-page::before {
+  display: none;
+}
+
+#probador-shell {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: #000;
+  touch-action: none;
+}
+
+#probador-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Watch overlay */
+#watch-overlay-wrap {
+  position: absolute;
+  z-index: 10;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  filter: drop-shadow(0 8px 32px rgba(0, 0, 0, 0.75));
+  transition: filter 0.15s ease;
+}
+
+#watch-overlay-wrap.dragging {
+  cursor: grabbing;
+  filter: drop-shadow(0 12px 40px rgba(0, 0, 0, 0.9)) drop-shadow(0 0 20px rgba(212, 175, 55, 0.45));
+}
+
+#watch-overlay-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  display: block;
+}
+
+/* Top bar */
+#probador-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  padding-top: calc(14px + env(safe-area-inset-top, 0px));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.72), transparent);
+}
+
+#probador-title {
+  flex: 1;
+  text-align: center;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.7);
+}
+
+/* Instruction hint */
+#probador-hint {
+  position: absolute;
+  top: 82px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.62);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 20px;
+  padding: 8px 18px;
+  font-size: 0.73rem;
+  color: var(--ink);
+  white-space: nowrap;
+  pointer-events: none;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+#probador-hint i {
+  color: var(--accent);
+}
+
+/* Size slider bar */
+#probador-size-bar {
+  position: absolute;
+  bottom: 136px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.58);
+  border-radius: 20px;
+  padding: 8px 18px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+#probador-size-bar i {
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+#size-slider {
+  width: 150px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+/* Capture button bar */
+#probador-capture-bar {
+  position: absolute;
+  bottom: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
+}
+
+/* Probador buttons */
+.p-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+  background: var(--accent);
+  color: #0b0b0b;
+}
+
+.p-btn:hover {
+  background: var(--accent-dark);
+}
+
+.p-btn:active {
+  transform: scale(0.95);
+}
+
+.p-btn-icon {
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.52);
+  color: var(--ink);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 1rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.p-btn-icon:hover {
+  background: rgba(212, 175, 55, 0.22);
+}
+
+.p-btn-capture {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  padding: 0;
+  font-size: 1.5rem;
+  background: var(--accent);
+  color: #0b0b0b;
+  box-shadow:
+    0 0 0 5px rgba(212, 175, 55, 0.22),
+    0 4px 28px rgba(212, 175, 55, 0.45);
+}
+
+.p-btn-capture:active {
+  transform: scale(0.9);
+}
+
+.p-btn-outline {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.p-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Flash */
+#capture-flash {
+  position: absolute;
+  inset: 0;
+  z-index: 50;
+  background: #fff;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+#capture-flash.flash-active {
+  opacity: 0.75;
+  transition: opacity 0s;
+}
+
+/* Photo modal */
+#photo-modal {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+#photo-modal[hidden] {
+  display: none;
+}
+
+#photo-modal-card {
+  background: var(--surface-strong);
+  border: 1px solid rgba(212, 175, 55, 0.22);
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.photo-modal-label {
+  margin: 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-align: center;
+  font-weight: 600;
+}
+
+#photo-preview {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+  max-height: 58vh;
+  object-fit: contain;
+}
+
+#photo-modal-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+#photo-modal-actions .p-btn {
+  flex: 1;
+  min-width: 90px;
+  font-size: 0.8rem;
+}
+
+/* No camera */
+#no-camera {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: var(--surface);
+  text-align: center;
+  padding: 40px;
+}
+
+#no-camera[hidden] {
+  display: none;
+}
+
+#no-camera i {
+  font-size: 3rem;
+  color: var(--accent);
+}
+
+#no-camera p {
+  color: var(--muted-ink);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* "Probar en muñeca" button in product detail */
+.btn-probador {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 24px;
+  background: transparent;
+  color: var(--accent);
+  border: 1.5px solid var(--accent);
+  border-radius: 40px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.btn-probador:hover {
+  background: rgba(212, 175, 55, 0.12);
+  transform: translateY(-1px);
+}
+
+.btn-probador i {
+  font-size: 1rem;
+}
+
+/* ===========================
+   END PROBADOR VIRTUAL
+   =========================== */
+
 @media (max-width: 700px) and (orientation: portrait) {
   .fragrance-grid {
     grid-template-columns: 1fr;

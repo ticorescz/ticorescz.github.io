@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Probador Virtual - Ticore</title>
+  <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="probador-page">
+  <div id="probador-shell">
+
+    <!-- Camera feed -->
+    <video id="probador-video" autoplay playsinline muted></video>
+
+    <!-- Watch overlay (draggable) -->
+    <div id="watch-overlay-wrap">
+      <img id="watch-overlay-img" src="" alt="Reloj" draggable="false">
+    </div>
+
+    <!-- Top bar -->
+    <div id="probador-topbar">
+      <button id="btn-back" class="p-btn p-btn-icon" title="Volver">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <span id="probador-title">Probador Virtual</span>
+      <button id="btn-flip" class="p-btn p-btn-icon" title="Cambiar camara">
+        <i class="fas fa-camera-rotate"></i>
+      </button>
+    </div>
+
+    <!-- Instruction hint -->
+    <div id="probador-hint">
+      <i class="fas fa-hand-pointer"></i>
+      <span>Acerca tu muñeca ~30 cm · Arrastra para ajustar</span>
+    </div>
+
+    <!-- Size slider -->
+    <div id="probador-size-bar">
+      <i class="fas fa-compress-alt"></i>
+      <input type="range" id="size-slider" min="60" max="320" value="150">
+      <i class="fas fa-expand-alt"></i>
+    </div>
+
+    <!-- Capture button -->
+    <div id="probador-capture-bar">
+      <button id="btn-capture" class="p-btn p-btn-capture" title="Tomar foto">
+        <i class="fas fa-camera"></i>
+      </button>
+    </div>
+
+    <!-- Flash overlay -->
+    <div id="capture-flash"></div>
+
+    <!-- Photo modal -->
+    <div id="photo-modal" hidden>
+      <div id="photo-modal-card">
+        <p class="photo-modal-label">Tu foto</p>
+        <img id="photo-preview" src="" alt="Foto con reloj">
+        <div id="photo-modal-actions">
+          <button id="btn-download" class="p-btn">
+            <i class="fas fa-download"></i> Guardar
+          </button>
+          <button id="btn-share" class="p-btn">
+            <i class="fas fa-share-alt"></i> Compartir
+          </button>
+          <button id="btn-retake" class="p-btn p-btn-outline">
+            <i class="fas fa-redo"></i> Repetir
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- No camera fallback -->
+    <div id="no-camera" hidden>
+      <i class="fas fa-video-slash"></i>
+      <p>No se pudo acceder a la cámara.<br>Verifica los permisos del navegador.</p>
+      <button id="btn-back-nocam" class="p-btn">Volver</button>
+    </div>
+
+    <!-- Hidden canvas for capture -->
+    <canvas id="capture-canvas" style="display:none"></canvas>
+  </div>
+
+  <script src="js/products.js"></script>
+  <script src="js/probador.js"></script>
+</body>
+</html>

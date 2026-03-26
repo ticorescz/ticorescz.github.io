@@ -17,12 +17,20 @@
   const colors = document.getElementById('detail-colors');
   const whatsapp = document.getElementById('detail-whatsapp');
   const apedidoNotice = document.getElementById('detail-apedido-notice');
+  const btnProbador = document.getElementById('btn-probador');
   let selectedColor = null;
+  let currentImgSrc = '';
 
   function setMainImage(src, alt) {
     if (!mainImage) return;
     mainImage.src = src;
     mainImage.alt = alt || 'Reloj';
+    currentImgSrc = src;
+    if (btnProbador) {
+      btnProbador.onclick = () => {
+        window.location.href = `probador.html?id=${id}&img=${encodeURIComponent(currentImgSrc)}`;
+      };
+    }
   }
 
   function renderThumbs(images, alt) {
