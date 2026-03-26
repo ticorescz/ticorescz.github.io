@@ -28,7 +28,8 @@
     currentImgSrc = src;
     if (btnProbador) {
       btnProbador.onclick = () => {
-        window.location.href = `probador.html?id=${id}&img=${encodeURIComponent(currentImgSrc)}`;
+        const url = `probador.html?id=${id}&img=${encodeURIComponent(currentImgSrc)}`;
+        (window.top || window).location.href = url;
       };
     }
   }

@@ -137,11 +137,8 @@
   // --- Back ---
   function goBack() {
     if (stream) stream.getTracks().forEach(t => t.stop());
-    if (document.referrer && document.referrer.includes(window.location.hostname)) {
-      history.back();
-    } else {
-      window.location.href = productId ? `product-detail.html?id=${productId}` : 'index.html';
-    }
+    const nav = window.top || window;
+    nav.location.href = productId ? `product-detail.html?id=${productId}` : 'index.html';
   }
 
   btnBack.addEventListener('click', goBack);
