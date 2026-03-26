@@ -9,7 +9,6 @@
   const video = document.getElementById('probador-video');
   const overlayWrap = document.getElementById('watch-overlay-wrap');
   const overlayImg = document.getElementById('watch-overlay-img');
-  const sizeSlider = document.getElementById('size-slider');
   const btnBack = document.getElementById('btn-back');
   const btnFlip = document.getElementById('btn-flip');
   const btnCapture = document.getElementById('btn-capture');
@@ -23,22 +22,59 @@
   const noCamera = document.getElementById('no-camera');
   const noCameraBack = document.getElementById('btn-back-nocam');
   const titleEl = document.getElementById('probador-title');
+  const hintText = document.getElementById('probador-hint-text');
 
   let stream = null;
   let facingMode = 'environment';
-  let currentSize = 150;
-  let initialized = false;
+
+  // --- Product data ---
+  const products = Array.isArray(window.TICORE_PRODUCTS) ? window.TICORE_PRODUCTS : [];
+  const product = products.find(p => p.id === productId);
+
+  if (product && titleEl) {
+    titleEl.textContent = product.title;
+  }
 
   // --- Watch image ---
   if (imgSrc) {
     overlayImg.src = imgSrc;
   }
 
-  // --- Product title ---
-  const products = Array.isArray(window.TICORE_PRODUCTS) ? window.TICORE_PRODUCTS : [];
-  const product = products.find(p => p.id === productId);
-  if (product && titleEl) {
-    titleEl.textContent = product.title;
+  // --- Extract case size in mm from product features ---
+  function getCaseSizeMm(prod) {
+    if (!prod) return 42;
+    const features = prod.features || [];
+    for (const f of features) {
+      // Match "Caja de 41mm", "Caja cuadrada 41mm", "44.5mm", etc.
+      const m = f.match(/caja[^0-9]*(\d+(?:\.\d+)?)\s*mm/i);
+      if (m) return parseFloat(m[1]);
+    }
+    // Fallback: scan description
+    const descMatch = (prod.description || '').match(/caja[^0-9]*(\d+(?:\.\d+)?)\s*mm/i);
+    if (descMatch) return parseFloat(descMatch[1]);
+    return 42; // sensible default
+  }
+
+  const caseSizeMm = getCaseSizeMm(product);
+
+  // Update hint with actual mm
+  if (hintText) {
+    hintText.textContent = `Reloj a tamaño real (${caseSizeMm}mm) · Acerca tu muñeca a la cámara`;
+  }
+
+  // --- Position overlay at center-horizontal, lower portion of screen ---
+  function placeOverlay() {
+    // Apply real-world size via CSS mm units
+    overlayWrap.style.width = caseSizeMm + 'mm';
+    overlayWrap.style.height = caseSizeMm + 'mm';
+
+    // Center horizontally, ~55% down vertically
+    const sw = shell.offsetWidth;
+    const sh = shell.offsetHeight;
+    const wPx = overlayWrap.offsetWidth;
+    const hPx = overlayWrap.offsetHeight;
+    overlayWrap.style.left = Math.round((sw - wPx) / 2) + 'px';
+    overlayWrap.style.top = Math.round(sh * 0.52 - hPx / 2) + 'px';
   }
 
   // --- Camera ---
@@ -61,79 +97,6 @@
     }
   }
 
-  // --- Default overlay position (center, lower 55% of screen) ---
-  function setDefaultPosition() {
-    if (initialized) return; // don't reset position after first load
-    const sw = shell.offsetWidth;
-    const sh = shell.offsetHeight;
-    overlayWrap.style.width = currentSize + 'px';
-    overlayWrap.style.height = currentSize + 'px';
-    overlayWrap.style.left = Math.round((sw - currentSize) / 2) + 'px';
-    overlayWrap.style.top = Math.round(sh * 0.52) + 'px';
-    initialized = true;
-  }
-
-  // --- Size slider ---
-  sizeSlider.addEventListener('input', () => {
-    currentSize = parseInt(sizeSlider.value, 10);
-    // Keep center position when resizing
-    const cx = overlayWrap.offsetLeft + overlayWrap.offsetWidth / 2;
-    const cy = overlayWrap.offsetTop + overlayWrap.offsetHeight / 2;
-    overlayWrap.style.width = currentSize + 'px';
-    overlayWrap.style.height = currentSize + 'px';
-    overlayWrap.style.left = Math.round(cx - currentSize / 2) + 'px';
-    overlayWrap.style.top = Math.round(cy - currentSize / 2) + 'px';
-  });
-
-  // --- Drag (touch + mouse) ---
-  let dragging = false;
-  let dragStartX = 0, dragStartY = 0;
-  let overlayStartLeft = 0, overlayStartTop = 0;
-
-  function getXY(e) {
-    if (e.touches && e.touches.length > 0) {
-      return { x: e.touches[0].clientX, y: e.touches[0].clientY };
-    }
-    return { x: e.clientX, y: e.clientY };
-  }
-
-  overlayWrap.addEventListener('mousedown', startDrag);
-  overlayWrap.addEventListener('touchstart', startDrag, { passive: true });
-
-  function startDrag(e) {
-    dragging = true;
-    const { x, y } = getXY(e);
-    dragStartX = x;
-    dragStartY = y;
-    overlayStartLeft = overlayWrap.offsetLeft;
-    overlayStartTop = overlayWrap.offsetTop;
-    overlayWrap.classList.add('dragging');
-  }
-
-  document.addEventListener('mousemove', onDrag);
-  document.addEventListener('touchmove', onDrag, { passive: false });
-
-  function onDrag(e) {
-    if (!dragging) return;
-    if (e.cancelable) e.preventDefault();
-    const { x, y } = getXY(e);
-    const newLeft = overlayStartLeft + (x - dragStartX);
-    const newTop = overlayStartTop + (y - dragStartY);
-    const maxLeft = shell.offsetWidth - overlayWrap.offsetWidth;
-    const maxTop = shell.offsetHeight - overlayWrap.offsetHeight;
-    overlayWrap.style.left = Math.max(0, Math.min(newLeft, maxLeft)) + 'px';
-    overlayWrap.style.top = Math.max(0, Math.min(newTop, maxTop)) + 'px';
-  }
-
-  document.addEventListener('mouseup', stopDrag);
-  document.addEventListener('touchend', stopDrag);
-
-  function stopDrag() {
-    if (!dragging) return;
-    dragging = false;
-    overlayWrap.classList.remove('dragging');
-  }
-
   // --- Back ---
   function goBack() {
     if (stream) stream.getTracks().forEach(t => t.stop());
@@ -154,7 +117,6 @@
   btnCapture.addEventListener('click', capturePhoto);
 
   function capturePhoto() {
-    // Flash effect
     flash.classList.add('flash-active');
     setTimeout(() => flash.classList.remove('flash-active'), 350);
 
@@ -172,20 +134,17 @@
       const cRatio = sw / sh;
       let sx, sy, sW, sH;
       if (vRatio > cRatio) {
-        // Video wider than canvas: crop left/right
         sH = vH;
         sW = Math.round(sH * cRatio);
         sx = Math.round((vW - sW) / 2);
         sy = 0;
       } else {
-        // Video taller than canvas: crop top/bottom
         sW = vW;
         sH = Math.round(sW / cRatio);
         sx = 0;
         sy = Math.round((vH - sH) / 2);
       }
       if (facingMode === 'user') {
-        // Mirror front camera
         ctx.save();
         ctx.scale(-1, 1);
         ctx.drawImage(video, sx, sy, sW, sH, -sw, 0, sw, sh);
@@ -219,7 +178,7 @@
     a.click();
   });
 
-  // --- Share (Web Share API, falls back to download) ---
+  // --- Share ---
   btnShare.addEventListener('click', async () => {
     if (!navigator.share || !navigator.canShare) {
       btnDownload.click();
@@ -251,6 +210,8 @@
   // --- Init ---
   window.addEventListener('load', async () => {
     await startCamera();
-    setDefaultPosition();
+    placeOverlay();
   });
+
+  window.addEventListener('resize', placeOverlay);
 })();
