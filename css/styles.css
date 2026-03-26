@@ -1558,8 +1558,32 @@ body.swipe-hub {
   -webkit-backdrop-filter: blur(8px);
 }
 
-#probador-hint i {
-  color: var(--accent);
+/* Status dot */
+.hint-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.hint-dot--loading {
+  background: var(--muted-ink);
+  animation: hint-pulse 1.2s ease-in-out infinite;
+}
+
+.hint-dot--searching {
+  background: var(--accent);
+  animation: hint-pulse 1.4s ease-in-out infinite;
+}
+
+.hint-dot--found {
+  background: #4ade80;
+  animation: none;
+}
+
+@keyframes hint-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
 }
 
 /* Capture button bar */
