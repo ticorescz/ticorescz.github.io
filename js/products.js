@@ -1,6 +1,7 @@
 window.TICORE_PRODUCTS = [
   {
     "id": 40,
+    "automatic": true,
     "code": "PD-1639",
     "title": "Pagani Design PD 1639",
     "category": "deportivo",
@@ -43,6 +44,7 @@ window.TICORE_PRODUCTS = [
   },
   {
     "id": 41,
+    "automatic": true,
     "code": "PD-1645",
     "title": "Pagani Design PD 1645",
     "category": "elegante",
@@ -79,6 +81,7 @@ window.TICORE_PRODUCTS = [
   },
   {
     "id": 42,
+    "automatic": true,
     "code": "PD-1759-ACERO",
     "title": "Pagani Design PD 1759 Acero",
     "category": "elegante",
@@ -113,13 +116,14 @@ window.TICORE_PRODUCTS = [
   },
   {
     "id": 43,
+    "automatic": true,
     "code": "PD-1759-CUERO",
     "title": "Pagani Design PD 1759 Cuero",
     "category": "elegante",
     "gender": "hombre",
     "brand": "pagani",
     "brandLabel": "Pagani Design",
-    "price": 1600,
+    "price": 1650,
     "images": [
       "images/Pagani 1759 Cuero.png"
     ],
@@ -191,49 +195,6 @@ window.TICORE_PRODUCTS = [
     ]
   },
   {
-    "id": 2,
-    "title": "Poedagar PD 921 Cuero",
-    "code": "PD-921-CUERO",
-    "category": "elegante",
-    "gender": "hombre",
-    "brand": "poedagar",
-    "brandLabel": "Poedagar",
-    "price": 380,
-    "images": [
-      "images/pd921-cuero-1.png",
-      "images/pd921-cuero-2.png",
-      "images/pd921-cuero-3.png"
-    ],
-    "description": "Sofisticacion moderna con cronografo funcional y correa de cuero premium.",
-    "shortDescription": "Cronografo elegante en cuero",
-    "features": [
-      "Caja de 41mm",
-      "Movimiento MIYOTA",
-      "Resistente al agua 5ATM",
-      "Cronografo funcional",
-      "Calendario integrado"
-    ],
-    "colors": [
-      {
-        "name": "Negro/Plata",
-        "hex": "#000000",
-        "imageIndex": 1
-      },
-      {
-        "name": "Azul/Plata",
-        "hex": "#1e3a8a",
-        "imageIndex": 0
-      },
-      {
-        "name": "Full Black",
-        "hex": "#1a1a1a",
-        "imageIndex": 2
-      }
-    ],
-    "badge": "NUEVO",
-    "inStock": true
-  },
-  {
     "id": 3,
     "title": "Poedagar PD 921 Acero",
     "code": "PD-921-ACERO",
@@ -258,12 +219,20 @@ window.TICORE_PRODUCTS = [
     ],
     "colors": [
       {
-        "name": "Full Black",
-        "hex": "#1a1a1a"
+        "name": "Azul/Plata",
+        "hex": "#1e3a8a",
+        "imageIndex": 0
       },
       {
-        "name": "Azul/Plata",
-        "hex": "#1e3a8a"
+        "name": "Negro/Plata",
+        "hex": "#000000",
+        "hex2": "#C0C0C0",
+        "imageIndex": 1
+      },
+      {
+        "name": "Full Black",
+        "hex": "#1a1a1a",
+        "imageIndex": 2
       }
     ],
     "badge": "NUEVO",
@@ -294,11 +263,13 @@ window.TICORE_PRODUCTS = [
     "colors": [
       {
         "name": "Full Black",
-        "hex": "#1a1a1a"
+        "hex": "#1a1a1a",
+        "imageIndex": 0
       },
       {
         "name": "Negro/Plata",
-        "hex": "#000000"
+        "hex": "#000000",
+        "imageIndex": 1
       }
     ],
     "badge": "NUEVO"
@@ -463,11 +434,13 @@ window.TICORE_PRODUCTS = [
     "colors": [
       {
         "name": "Negra",
-        "hex": "#000000"
+        "hex": "#000000",
+        "imageIndex": 1
       },
       {
         "name": "Blanca",
-        "hex": "#FFFFFF"
+        "hex": "#FFFFFF",
+        "imageIndex": 0
       }
     ],
     "badge": "DEPORTIVO"
@@ -496,53 +469,17 @@ window.TICORE_PRODUCTS = [
     "colors": [
       {
         "name": "Negra",
-        "hex": "#000000"
+        "hex": "#000000",
+        "imageIndex": 1
       },
       {
         "name": "Blanca",
-        "hex": "#FFFFFF"
+        "hex": "#FFFFFF",
+        "imageIndex": 0
       }
     ],
     "badge": "VERSATIL",
     "inStock": true
-  },
-  {
-    "id": 10,
-    "title": "Poedagar PD 808",
-    "code": "PD-808",
-    "category": "deportivo",
-    "gender": "hombre",
-    "brand": "poedagar",
-    "brandLabel": "Poedagar",
-    "inStock": true,
-    "price": 260,
-    "images": [
-      "images/pd808-1.png",
-      "images/pd808-2.png"
-    ],
-    "description": "Reloj deportivo con correa de nylon y fecha automatica.",
-    "shortDescription": "Deportivo robusto",
-    "features": [
-      "Caja de 41mm",
-      "Correa de nylon",
-      "Fecha automatica",
-      "Luminoso"
-    ],
-    "colors": [
-      {
-        "name": "Azul Oscuro",
-        "hex": "#001f3f"
-      },
-      {
-        "name": "Negro",
-        "hex": "#000000"
-      },
-      {
-        "name": "Blanco",
-        "hex": "#FFFFFF"
-      }
-    ],
-    "badge": "SPORT"
   },
   {
     "id": 11,
@@ -553,10 +490,11 @@ window.TICORE_PRODUCTS = [
     "brand": "poedagar",
     "brandLabel": "Poedagar",
     "inStock": true,
-    "price": 260,
+    "price": 330,
     "images": [
       "images/pd821-1.png",
-      "images/pd821-2.png"
+      "images/pd821-2.png",
+      "images/pd821-3.png"
     ],
     "description": "Diseno elegante casual con movimiento japones.",
     "shortDescription": "Elegancia casual",
@@ -569,83 +507,21 @@ window.TICORE_PRODUCTS = [
     "colors": [
       {
         "name": "Turquesa",
-        "hex": "#87CEEB"
-      },
-      {
-        "name": "Azul Marino",
-        "hex": "#000080"
-      },
-      {
-        "name": "Negro",
-        "hex": "#000000"
-      }
-    ],
-    "badge": "PREMIUM"
-  },
-  {
-    "id": 12,
-    "title": "Poedagar PD 928",
-    "code": "PD-928",
-    "category": "deportivo",
-    "gender": "hombre",
-    "brand": "poedagar",
-    "brandLabel": "Poedagar",
-    "inStock": true,
-    "price": 390,
-    "images": [
-      "images/pd928-1.png",
-      "images/pd928-2.png"
-    ],
-    "description": "Cronografo deportivo de alto rendimiento.",
-    "shortDescription": "Cronografo deportivo",
-    "features": [
-      "Caja de 42mm",
-      "Cronografo completo",
-      "Dia y fecha",
-      "Peso: 145g"
-    ],
-    "colors": [
-      {
-        "name": "Full Black",
-        "hex": "#1a1a1a",
+        "hex": "#87CEEB",
         "imageIndex": 0
       },
       {
-        "name": "Negra",
-        "hex": "#000000",
+        "name": "Azul Marino",
+        "hex": "#000080",
         "imageIndex": 1
-      }
-    ],
-    "badge": "CRONOGRAFO"
-  },
-  {
-    "id": 13,
-    "title": "Poedagar PD 815",
-    "code": "PD-815",
-    "category": "bold",
-    "gender": "hombre",
-    "brand": "poedagar",
-    "brandLabel": "Poedagar",
-    "inStock": true,
-    "price": 390,
-    "images": [
-      "images/pd815-1.png"
-    ],
-    "description": "Reloj multifuncion de gran tamano con cronometro.",
-    "shortDescription": "Multifuncion grande",
-    "features": [
-      "Caja de 44.5mm",
-      "Cronometro",
-      "Dia/Fecha/Semana",
-      "Peso: 120g"
-    ],
-    "colors": [
+      },
       {
-        "name": "Negra",
-        "hex": "#000000"
+        "name": "Negro",
+        "hex": "#000000",
+        "imageIndex": 2
       }
     ],
-    "badge": "MULTIFUNCION"
+    "badge": "PREMIUM"
   },
   {
     "id": 14,
@@ -656,7 +532,7 @@ window.TICORE_PRODUCTS = [
     "brand": "poedagar",
     "brandLabel": "Poedagar",
     "inStock": true,
-    "price": 300,
+    "price": 320,
     "images": [
       "images/pd365m-1.png",
       "images/pd365m-2.png"
@@ -674,11 +550,13 @@ window.TICORE_PRODUCTS = [
     "colors": [
       {
         "name": "Bronce",
-        "hex": "#CD7F32"
+        "hex": "#CD7F32",
+        "imageIndex": 0
       },
       {
         "name": "Blanca",
-        "hex": "#FFFFFF"
+        "hex": "#FFFFFF",
+        "imageIndex": 1
       }
     ],
     "badge": "VINTAGE"
@@ -694,7 +572,9 @@ window.TICORE_PRODUCTS = [
     "price": 290,
     "images": [
       "images/pd613-acero-1.png",
-      "images/pd613-acero-2.png"
+      "images/pd613-acero-2.png",
+      "images/pd613-acero-3.png",
+      "images/pd613-acero-4.png"
     ],
     "description": "Diseno cuadrado moderno con correa de acero.",
     "shortDescription": "Cuadrado moderno",
@@ -706,8 +586,8 @@ window.TICORE_PRODUCTS = [
     ],
     "colors": [
       {
-        "name": "Azul Marino",
-        "hex": "#000080",
+        "name": "Negro",
+        "hex": "#111111",
         "imageIndex": 0
       },
       {
@@ -716,9 +596,14 @@ window.TICORE_PRODUCTS = [
         "imageIndex": 1
       },
       {
+        "name": "Azul Marino",
+        "hex": "#000080",
+        "imageIndex": 2
+      },
+      {
         "name": "Verde",
         "hex": "#28a745",
-        "imageIndex": 0
+        "imageIndex": 3
       }
     ],
     "badge": "MODERNO",
@@ -1020,44 +905,6 @@ window.TICORE_PRODUCTS = [
     "inStock": true
   },
   {
-    "id": 24,
-    "code": "PD-988",
-    "title": "Poedagar PD 988",
-    "category": "deportivo",
-    "gender": "hombre",
-    "brand": "poedagar",
-    "brandLabel": "Poedagar",
-    "price": 370,
-    "images": [
-      "images/PD988 Negro.png",
-      "images/PD988 Azul.png"
-    ],
-    "description": "Cronografo deportivo con correa de silicona y presencia robusta.",
-    "shortDescription": "Cronografo sport",
-    "features": [
-      "Caja de 44mm",
-      "Movimiento de cuarzo",
-      "Cronografo multifuncion",
-      "Calendario de fecha",
-      "Manecillas luminosas",
-      "Resistencia al agua 3BAR"
-    ],
-    "colors": [
-      {
-        "name": "Negro",
-        "hex": "#111111",
-        "imageIndex": 0
-      },
-      {
-        "name": "Azul",
-        "hex": "#1E3A8A",
-        "imageIndex": 1
-      }
-    ],
-    "badge": "CRONOGRAFO",
-    "inStock": true
-  },
-  {
     "id": 25,
     "code": "PD-8208",
     "title": "Poedagar PD 8208",
@@ -1139,7 +986,7 @@ window.TICORE_PRODUCTS = [
     "gender": "mujer",
     "brand": "poedagar",
     "brandLabel": "Poedagar",
-    "price": 280,
+    "price": 310,
     "images": [
       "images/PD312 Blanco.png",
       "images/PD312 Oro.png"
@@ -1213,7 +1060,7 @@ window.TICORE_PRODUCTS = [
     "gender": "mujer",
     "brand": "poedagar",
     "brandLabel": "Poedagar",
-    "price": 310,
+    "price": 280,
     "images": [
       "images/PD312C Blanco.png",
       "images/PD312C Oro.png"
@@ -1250,7 +1097,7 @@ window.TICORE_PRODUCTS = [
     "gender": "mujer",
     "brand": "poedagar",
     "brandLabel": "Poedagar",
-    "price": 320,
+    "price": 300,
     "images": [
       "images/PD365C Blanco.png",
       "images/PD365C Oro.png"
@@ -1319,6 +1166,7 @@ window.TICORE_PRODUCTS = [
   },
   {
     "id": 32,
+    "recent": true,
     "code": "PD-675",
     "title": "Poedagar PD 675",
     "category": "elegante",
@@ -1359,6 +1207,7 @@ window.TICORE_PRODUCTS = [
   },
   {
     "id": 33,
+    "recent": true,
     "code": "PD-856",
     "title": "Poedagar PD 856",
     "category": "elegante",
@@ -1392,6 +1241,7 @@ window.TICORE_PRODUCTS = [
   },
   {
     "id": 34,
+    "recent": true,
     "code": "PD-924",
     "title": "Poedagar PD 924",
     "category": "bold",
@@ -1427,6 +1277,7 @@ window.TICORE_PRODUCTS = [
   },
   {
     "id": 35,
+    "recent": true,
     "code": "PD-993-ACERO",
     "title": "Poedagar PD 993 Acero",
     "category": "deportivo",
@@ -1460,13 +1311,14 @@ window.TICORE_PRODUCTS = [
   },
   {
     "id": 36,
+    "recent": true,
     "code": "PD-993-SILICONA",
     "title": "Poedagar PD 993 Silicona",
     "category": "deportivo",
     "gender": "hombre",
     "brand": "poedagar",
     "brandLabel": "Poedagar",
-    "price": 340,
+    "price": 330,
     "images": [
       "images/PD993 Silicona Negro.png"
     ],
@@ -1493,6 +1345,7 @@ window.TICORE_PRODUCTS = [
   },
   {
     "id": 37,
+    "recent": true,
     "code": "PD-268-M",
     "title": "Poedagar PD 268 M",
     "category": "elegante",
@@ -1526,6 +1379,7 @@ window.TICORE_PRODUCTS = [
   },
   {
     "id": 38,
+    "recent": true,
     "code": "PD-3011-M",
     "title": "Poedagar PD 3011 M",
     "category": "elegante",
@@ -1565,6 +1419,7 @@ window.TICORE_PRODUCTS = [
   },
   {
     "id": 39,
+    "recent": true,
     "code": "PD-793-M",
     "title": "Poedagar PD 793 M",
     "category": "elegante",

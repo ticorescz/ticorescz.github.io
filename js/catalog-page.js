@@ -3,6 +3,7 @@
 
   const products = Array.isArray(window.TICORE_PRODUCTS) ? window.TICORE_PRODUCTS : [];
   const gender = document.body.dataset.gender || 'all';
+  const collection = document.body.dataset.collection || '';
 
   const state = {
     category: 'all',
@@ -107,10 +108,14 @@
 
   function renderCards() {
     if (!grid) return [];
-    const filteredByGender = gender === 'all'
-      ? products
-      : products.filter(item => item.gender === gender);
-    grid.innerHTML = filteredByGender.map(buildCard).join('');
+    // La seccion "Automaticos" reune los relojes automaticos (ambos generos);
+    // el resto de secciones los excluyen para mantenerla como coleccion aparte.
+    let list = collection === 'automatico'
+      ? products.filter(item => item.automatic === true)
+      : products.filter(item => item.automatic !== true && (gender === 'all' || item.gender === gender));
+    // Las ultimas incorporaciones (no automaticas) se muestran primero.
+    list = list.slice().sort((a, b) => (b.recent === true ? 1 : 0) - (a.recent === true ? 1 : 0));
+    grid.innerHTML = list.map(buildCard).join('');
     return Array.from(grid.querySelectorAll('.decant'));
   }
 
