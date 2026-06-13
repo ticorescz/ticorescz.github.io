@@ -1,5 +1,152 @@
 window.TICORE_PRODUCTS = [
   {
+    "id": 40,
+    "code": "PD-1639",
+    "title": "Pagani Design PD 1639",
+    "category": "deportivo",
+    "gender": "hombre",
+    "brand": "pagani",
+    "brandLabel": "Pagani Design",
+    "price": 1500,
+    "images": [
+      "images/Pagani 1639 Negro.png",
+      "images/Pagani 1639 Verde.png"
+    ],
+    "description": "Reloj buceador automatico estilo diver con bisel ceramico giratorio, brazalete de acero y cristal de zafiro.",
+    "shortDescription": "Diver automatico",
+    "features": [
+      "Caja de 43mm",
+      "Grosor de caja 13mm",
+      "Movimiento automatico Miyota 8215",
+      "Reserva de marcha 42 horas",
+      "Cristal de zafiro antirreflejante",
+      "Bisel ceramico giratorio unidireccional",
+      "Brazalete de acero inoxidable 316L",
+      "Resistencia al agua 100M",
+      "Corona atornillada",
+      "Manecillas e indices luminosos"
+    ],
+    "colors": [
+      {
+        "name": "Negro",
+        "hex": "#111111",
+        "imageIndex": 0
+      },
+      {
+        "name": "Verde",
+        "hex": "#1B7A3D",
+        "imageIndex": 1
+      }
+    ],
+    "badge": "NUEVO",
+    "inStock": true
+  },
+  {
+    "id": 41,
+    "code": "PD-1645",
+    "title": "Pagani Design PD 1645",
+    "category": "elegante",
+    "gender": "hombre",
+    "brand": "pagani",
+    "brandLabel": "Pagani Design",
+    "price": 1450,
+    "images": [
+      "images/Pagani 1645 Acero.png"
+    ],
+    "description": "Reloj automatico clasico con bisel estriado, brazalete jubilee y esfera plateada con calendario de fecha.",
+    "shortDescription": "Clasico automatico jubilee",
+    "features": [
+      "Caja de 42mm",
+      "Grosor de caja 12mm",
+      "Movimiento automatico Miyota 8215",
+      "Reserva de marcha 42 horas",
+      "Cristal de zafiro antirreflejante",
+      "Bisel estriado",
+      "Brazalete jubilee de acero inoxidable 316L",
+      "Resistencia al agua 100M",
+      "Corona atornillada",
+      "Manecillas luminosas"
+    ],
+    "colors": [
+      {
+        "name": "Acero",
+        "hex": "#C0C0C0",
+        "imageIndex": 0
+      }
+    ],
+    "badge": "NUEVO",
+    "inStock": true
+  },
+  {
+    "id": 42,
+    "code": "PD-1759-ACERO",
+    "title": "Pagani Design PD 1759 Acero",
+    "category": "elegante",
+    "gender": "hombre",
+    "brand": "pagani",
+    "brandLabel": "Pagani Design",
+    "price": 1600,
+    "images": [
+      "images/Pagani 1759 Azul.png"
+    ],
+    "description": "Reloj de vestir automatico con esfera azul, numeros romanos y brazalete de acero inoxidable.",
+    "shortDescription": "Vestir automatico esfera azul",
+    "features": [
+      "Caja de 40mm",
+      "Grosor de caja 12mm",
+      "Movimiento automatico Miyota 8215",
+      "Cristal de zafiro antirreflejante",
+      "Brazalete de acero inoxidable 316L",
+      "Resistencia al agua 100M",
+      "Corona atornillada",
+      "Calendario de fecha"
+    ],
+    "colors": [
+      {
+        "name": "Azul",
+        "hex": "#1E3A8A",
+        "imageIndex": 0
+      }
+    ],
+    "badge": "NUEVO",
+    "inStock": true
+  },
+  {
+    "id": 43,
+    "code": "PD-1759-CUERO",
+    "title": "Pagani Design PD 1759 Cuero",
+    "category": "elegante",
+    "gender": "hombre",
+    "brand": "pagani",
+    "brandLabel": "Pagani Design",
+    "price": 1600,
+    "images": [
+      "images/Pagani 1759 Cuero.png"
+    ],
+    "description": "Version del PD1759 con correa de cuero y esfera plateada con numeros romanos, look refinado de vestir.",
+    "shortDescription": "Vestir automatico en cuero",
+    "features": [
+      "Caja de 40mm",
+      "Grosor de caja 12mm",
+      "Movimiento automatico Miyota 8215",
+      "Cristal de zafiro antirreflejante",
+      "Correa de cuero genuino",
+      "Resistencia al agua 100M",
+      "Corona atornillada",
+      "Calendario de fecha"
+    ],
+    "colors": [
+      {
+        "name": "Blanco/Cafe",
+        "hex": "#FFFFFF",
+        "hex2": "#6F4E37",
+        "imageIndex": 0
+      }
+    ],
+    "badge": "NUEVO",
+    "inStock": true
+  },
+  {
     "id": 1,
     "title": "Poedagar PD 986",
     "code": "PD-986",
@@ -41,14 +188,12 @@ window.TICORE_PRODUCTS = [
         "hex": "#111111",
         "imageIndex": 2
       }
-    ],
-    "badge": "NUEVO"
+    ]
   },
   {
     "id": 2,
     "title": "Poedagar PD 921 Cuero",
     "code": "PD-921-CUERO",
-    "aPedido": true,
     "category": "elegante",
     "gender": "hombre",
     "brand": "poedagar",
@@ -85,7 +230,7 @@ window.TICORE_PRODUCTS = [
         "imageIndex": 2
       }
     ],
-    "badge": "CRONOGRAFO",
+    "badge": "NUEVO",
     "inStock": true
   },
   {
@@ -118,11 +263,10 @@ window.TICORE_PRODUCTS = [
       },
       {
         "name": "Azul/Plata",
-        "hex": "#1e3a8a",
-        "aPedido": true
+        "hex": "#1e3a8a"
       }
     ],
-    "badge": "PREMIUM",
+    "badge": "NUEVO",
     "inStock": true
   },
   {
@@ -134,8 +278,7 @@ window.TICORE_PRODUCTS = [
     "brand": "poedagar",
     "brandLabel": "Poedagar",
     "inStock": true,
-    "aPedido": true,
-    "price": 230,
+    "price": 310,
     "images": [
       "images/pd829-1.png",
       "images/pd829-2.png"
@@ -158,7 +301,7 @@ window.TICORE_PRODUCTS = [
         "hex": "#000000"
       }
     ],
-    "badge": "VERSATIL"
+    "badge": "NUEVO"
   },
   {
     "id": 5,
@@ -206,7 +349,7 @@ window.TICORE_PRODUCTS = [
     "gender": "hombre",
     "brand": "poedagar",
     "brandLabel": "Poedagar",
-    "price": 310,
+    "price": 320,
     "images": [
       "images/pd930-1.png",
       "images/pd930-2.png",
@@ -237,7 +380,7 @@ window.TICORE_PRODUCTS = [
         "imageIndex": 2
       }
     ],
-    "badge": "POPULAR",
+    "badge": "NUEVO",
     "inStock": true
   },
   {
@@ -274,20 +417,17 @@ window.TICORE_PRODUCTS = [
       {
         "name": "Blanca",
         "hex": "#FFFFFF",
-        "imageIndex": 2,
-        "aPedido": true
+        "imageIndex": 2
       },
       {
         "name": "Negra",
         "hex": "#000000",
-        "imageIndex": 1,
-        "aPedido": true
+        "imageIndex": 1
       },
       {
         "name": "Bronce",
         "hex": "#CD7F32",
-        "imageIndex": 3,
-        "aPedido": true
+        "imageIndex": 3
       },
       {
         "name": "Negro/Oro",
@@ -296,7 +436,7 @@ window.TICORE_PRODUCTS = [
         "imageIndex": 4
       }
     ],
-    "badge": "ELEGANTE"
+    "badge": "NUEVO"
   },
   {
     "id": 8,
@@ -375,7 +515,6 @@ window.TICORE_PRODUCTS = [
     "brand": "poedagar",
     "brandLabel": "Poedagar",
     "inStock": true,
-    "aPedido": true,
     "price": 260,
     "images": [
       "images/pd808-1.png",
@@ -414,7 +553,6 @@ window.TICORE_PRODUCTS = [
     "brand": "poedagar",
     "brandLabel": "Poedagar",
     "inStock": true,
-    "aPedido": true,
     "price": 260,
     "images": [
       "images/pd821-1.png",
@@ -453,7 +591,6 @@ window.TICORE_PRODUCTS = [
     "brand": "poedagar",
     "brandLabel": "Poedagar",
     "inStock": true,
-    "aPedido": true,
     "price": 390,
     "images": [
       "images/pd928-1.png",
@@ -490,7 +627,6 @@ window.TICORE_PRODUCTS = [
     "brand": "poedagar",
     "brandLabel": "Poedagar",
     "inStock": true,
-    "aPedido": true,
     "price": 390,
     "images": [
       "images/pd815-1.png"
@@ -542,8 +678,7 @@ window.TICORE_PRODUCTS = [
       },
       {
         "name": "Blanca",
-        "hex": "#FFFFFF",
-        "aPedido": true
+        "hex": "#FFFFFF"
       }
     ],
     "badge": "VINTAGE"
@@ -598,7 +733,7 @@ window.TICORE_PRODUCTS = [
     "brand": "poedagar",
     "brandLabel": "Poedagar",
     "inStock": true,
-    "price": 270,
+    "price": 300,
     "images": [
       "images/pd613-cuero-1.png",
       "images/PD613C Negro.png"
@@ -623,7 +758,7 @@ window.TICORE_PRODUCTS = [
         "imageIndex": 1
       }
     ],
-    "badge": "CLASICO"
+    "badge": "NUEVO"
   },
   {
     "id": 18,
@@ -652,8 +787,7 @@ window.TICORE_PRODUCTS = [
       {
         "name": "Azul Marino",
         "hex": "#000080",
-        "imageIndex": 0,
-        "aPedido": true
+        "imageIndex": 0
       },
       {
         "name": "Negro/Dorado",
@@ -712,7 +846,6 @@ window.TICORE_PRODUCTS = [
         "imageIndex": 2
       }
     ],
-    "badge": "NUEVO",
     "inStock": true
   },
   {
@@ -744,14 +877,12 @@ window.TICORE_PRODUCTS = [
       {
         "name": "Blanco",
         "hex": "#FFFFFF",
-        "imageIndex": 0,
-        "aPedido": true
+        "imageIndex": 0
       },
       {
         "name": "Dorado",
         "hex": "#D4AF37",
-        "imageIndex": 1,
-        "aPedido": true
+        "imageIndex": 1
       },
       {
         "name": "Negro",
@@ -803,7 +934,6 @@ window.TICORE_PRODUCTS = [
         "imageIndex": 1
       }
     ],
-    "badge": "NUEVO",
     "inStock": true
   },
   {
@@ -884,11 +1014,9 @@ window.TICORE_PRODUCTS = [
         "name": "Blanco/Dorado",
         "hex": "#FFFFFF",
         "hex2": "#D4AF37",
-        "imageIndex": 2,
-        "aPedido": true
+        "imageIndex": 2
       }
     ],
-    "badge": "NUEVO",
     "inStock": true
   },
   {
@@ -918,8 +1046,7 @@ window.TICORE_PRODUCTS = [
       {
         "name": "Negro",
         "hex": "#111111",
-        "imageIndex": 0,
-        "aPedido": true
+        "imageIndex": 0
       },
       {
         "name": "Azul",
@@ -962,11 +1089,9 @@ window.TICORE_PRODUCTS = [
       {
         "name": "Negro",
         "hex": "#111111",
-        "imageIndex": 1,
-        "aPedido": true
+        "imageIndex": 1
       }
     ],
-    "badge": "NUEVO",
     "inStock": true
   },
   {
@@ -1001,11 +1126,9 @@ window.TICORE_PRODUCTS = [
       {
         "name": "Azul",
         "hex": "#1E3A8A",
-        "imageIndex": 1,
-        "aPedido": true
+        "imageIndex": 1
       }
     ],
-    "badge": "NUEVO",
     "inStock": true
   },
   {
@@ -1035,8 +1158,7 @@ window.TICORE_PRODUCTS = [
       {
         "name": "Blanco",
         "hex": "#FFFFFF",
-        "imageIndex": 0,
-        "aPedido": true
+        "imageIndex": 0
       },
       {
         "name": "Oro",
@@ -1044,7 +1166,6 @@ window.TICORE_PRODUCTS = [
         "imageIndex": 1
       }
     ],
-    "badge": "NUEVO",
     "inStock": true
   },
   {
@@ -1082,7 +1203,6 @@ window.TICORE_PRODUCTS = [
         "imageIndex": 1
       }
     ],
-    "badge": "NUEVO",
     "inStock": true
   },
   {
@@ -1112,8 +1232,7 @@ window.TICORE_PRODUCTS = [
       {
         "name": "Blanco",
         "hex": "#FFFFFF",
-        "imageIndex": 0,
-        "aPedido": true
+        "imageIndex": 0
       },
       {
         "name": "Oro",
@@ -1121,7 +1240,6 @@ window.TICORE_PRODUCTS = [
         "imageIndex": 1
       }
     ],
-    "badge": "NUEVO",
     "inStock": true
   },
   {
@@ -1151,8 +1269,7 @@ window.TICORE_PRODUCTS = [
       {
         "name": "Blanco",
         "hex": "#FFFFFF",
-        "imageIndex": 0,
-        "aPedido": true
+        "imageIndex": 0
       },
       {
         "name": "Oro",
@@ -1160,7 +1277,6 @@ window.TICORE_PRODUCTS = [
         "imageIndex": 1
       }
     ],
-    "badge": "NUEVO",
     "inStock": true
   },
   {
@@ -1190,12 +1306,295 @@ window.TICORE_PRODUCTS = [
       {
         "name": "Blanco",
         "hex": "#FFFFFF",
-        "imageIndex": 0,
-        "aPedido": true
+        "imageIndex": 0
       },
       {
         "name": "Oro",
         "hex": "#D4AF37",
+        "imageIndex": 1
+      }
+    ],
+    "badge": "NUEVO",
+    "inStock": true
+  },
+  {
+    "id": 32,
+    "code": "PD-675",
+    "title": "Poedagar PD 675",
+    "category": "elegante",
+    "gender": "hombre",
+    "brand": "poedagar",
+    "brandLabel": "Poedagar",
+    "price": 340,
+    "images": [
+      "images/PD675 Blanco.png",
+      "images/PD675 Negro.png"
+    ],
+    "description": "Reloj clasico de acero con dia y fecha, numeros romanos y gran presencia en muneca.",
+    "shortDescription": "Clasico dia y fecha",
+    "features": [
+      "Caja de 41mm",
+      "Grosor de caja 11mm",
+      "Movimiento de cuarzo",
+      "Cristal Hardlex",
+      "Brazalete de acero inoxidable",
+      "Resistencia al agua 3BAR",
+      "Calendario dia y fecha",
+      "Manecillas luminosas"
+    ],
+    "colors": [
+      {
+        "name": "Blanco",
+        "hex": "#FFFFFF",
+        "imageIndex": 0
+      },
+      {
+        "name": "Negro",
+        "hex": "#111111",
+        "imageIndex": 1
+      }
+    ],
+    "badge": "NUEVO",
+    "inStock": true
+  },
+  {
+    "id": 33,
+    "code": "PD-856",
+    "title": "Poedagar PD 856",
+    "category": "elegante",
+    "gender": "hombre",
+    "brand": "poedagar",
+    "brandLabel": "Poedagar",
+    "price": 320,
+    "images": [
+      "images/PD856 Azul.png"
+    ],
+    "description": "Reloj elegante con esfera azul sunburst, indices con cristales y calendario dia y fecha.",
+    "shortDescription": "Elegante esfera azul",
+    "features": [
+      "Caja de 41mm",
+      "Movimiento de cuarzo",
+      "Cristal Hardlex",
+      "Brazalete de acero inoxidable",
+      "Resistencia al agua 3ATM",
+      "Calendario dia y fecha",
+      "Manecillas luminosas"
+    ],
+    "colors": [
+      {
+        "name": "Azul",
+        "hex": "#1E3A8A",
+        "imageIndex": 0
+      }
+    ],
+    "badge": "NUEVO",
+    "inStock": true
+  },
+  {
+    "id": 34,
+    "code": "PD-924",
+    "title": "Poedagar PD 924",
+    "category": "bold",
+    "gender": "hombre",
+    "brand": "poedagar",
+    "brandLabel": "Poedagar",
+    "price": 340,
+    "images": [
+      "images/PD924 Negro.png"
+    ],
+    "description": "Reloj deportivo de lujo con bisel octagonal, brazalete integrado y esfera tipo tapiz.",
+    "shortDescription": "Bisel octagonal full black",
+    "features": [
+      "Caja de 42mm",
+      "Grosor de caja 12mm",
+      "Bisel octagonal",
+      "Brazalete integrado de acero inoxidable",
+      "Movimiento de cuarzo japones",
+      "Cristal Hardlex",
+      "Resistencia al agua 30M",
+      "Calendario de fecha",
+      "Manecillas luminosas"
+    ],
+    "colors": [
+      {
+        "name": "Full Black",
+        "hex": "#111111",
+        "imageIndex": 0
+      }
+    ],
+    "badge": "NUEVO",
+    "inStock": true
+  },
+  {
+    "id": 35,
+    "code": "PD-993-ACERO",
+    "title": "Poedagar PD 993 Acero",
+    "category": "deportivo",
+    "gender": "hombre",
+    "brand": "poedagar",
+    "brandLabel": "Poedagar",
+    "price": 340,
+    "images": [
+      "images/PD993 Acero.png"
+    ],
+    "description": "Reloj deportivo analogico-digital de caja cuadrada con brazalete de acero y doble pantalla.",
+    "shortDescription": "Ana-digi en acero",
+    "features": [
+      "Caja cuadrada deportiva",
+      "Pantalla analogica y digital",
+      "Brazalete de acero inoxidable",
+      "Cronometro y alarma",
+      "Luz de fondo",
+      "Resistencia al agua 30M",
+      "Calendario digital"
+    ],
+    "colors": [
+      {
+        "name": "Negro",
+        "hex": "#111111",
+        "imageIndex": 0
+      }
+    ],
+    "badge": "NUEVO",
+    "inStock": true
+  },
+  {
+    "id": 36,
+    "code": "PD-993-SILICONA",
+    "title": "Poedagar PD 993 Silicona",
+    "category": "deportivo",
+    "gender": "hombre",
+    "brand": "poedagar",
+    "brandLabel": "Poedagar",
+    "price": 340,
+    "images": [
+      "images/PD993 Silicona Negro.png"
+    ],
+    "description": "Version del PD993 con correa de silicona comoda y resistente, doble pantalla analogica-digital.",
+    "shortDescription": "Ana-digi en silicona",
+    "features": [
+      "Caja cuadrada deportiva",
+      "Pantalla analogica y digital",
+      "Correa de silicona premium",
+      "Cronometro y alarma",
+      "Luz de fondo",
+      "Resistencia al agua 30M",
+      "Calendario digital"
+    ],
+    "colors": [
+      {
+        "name": "Negro",
+        "hex": "#111111",
+        "imageIndex": 0
+      }
+    ],
+    "badge": "NUEVO",
+    "inStock": true
+  },
+  {
+    "id": 37,
+    "code": "PD-268-M",
+    "title": "Poedagar PD 268 M",
+    "category": "elegante",
+    "gender": "mujer",
+    "brand": "poedagar",
+    "brandLabel": "Poedagar",
+    "price": 290,
+    "images": [
+      "images/PD268 Cafe.png"
+    ],
+    "description": "Reloj femenino elegante con correa de cuero, indices con cristales y calendario dia y fecha.",
+    "shortDescription": "Femenino en cuero",
+    "features": [
+      "Caja de aleacion con bisel dorado",
+      "Movimiento de cuarzo",
+      "Indices con cristales",
+      "Correa de cuero genuino",
+      "Resistencia al agua 3ATM",
+      "Calendario dia y fecha",
+      "Manecillas luminosas"
+    ],
+    "colors": [
+      {
+        "name": "Cafe",
+        "hex": "#6F4E37",
+        "imageIndex": 0
+      }
+    ],
+    "badge": "NUEVO",
+    "inStock": true
+  },
+  {
+    "id": 38,
+    "code": "PD-3011-M",
+    "title": "Poedagar PD 3011 M",
+    "category": "elegante",
+    "gender": "mujer",
+    "brand": "poedagar",
+    "brandLabel": "Poedagar",
+    "price": 320,
+    "images": [
+      "images/PD3011 Blanco.png",
+      "images/PD3011 Oro Rosa.png"
+    ],
+    "description": "Reloj femenino minimalista con brazalete de acero en tono oro rosa, esfera texturizada y calendario dia y fecha.",
+    "shortDescription": "Femenino oro rosa",
+    "features": [
+      "Diametro de esfera 32mm",
+      "Movimiento de cuarzo",
+      "Cristal mineral",
+      "Brazalete de acero inoxidable",
+      "Resistencia al agua 3BAR",
+      "Calendario dia y fecha",
+      "Manecillas luminosas"
+    ],
+    "colors": [
+      {
+        "name": "Blanco",
+        "hex": "#FFFFFF",
+        "imageIndex": 0
+      },
+      {
+        "name": "Oro Rosa",
+        "hex": "#B76E79",
+        "imageIndex": 1
+      }
+    ],
+    "badge": "NUEVO",
+    "inStock": true
+  },
+  {
+    "id": 39,
+    "code": "PD-793-M",
+    "title": "Poedagar PD 793 M",
+    "category": "elegante",
+    "gender": "mujer",
+    "brand": "poedagar",
+    "brandLabel": "Poedagar",
+    "price": 300,
+    "images": [
+      "images/PD793 Acero.png",
+      "images/PD793 Oro Rosa.png"
+    ],
+    "description": "Reloj femenino de caja cuadrada con pulsera tipo malla y esfera minimalista.",
+    "shortDescription": "Femenino cuadrado en malla",
+    "features": [
+      "Caja cuadrada slim",
+      "Movimiento de cuarzo",
+      "Cristal mineral",
+      "Pulsera de malla de acero inoxidable",
+      "Resistencia al agua 3ATM",
+      "Diseno minimalista de vestir"
+    ],
+    "colors": [
+      {
+        "name": "Acero",
+        "hex": "#C0C0C0",
+        "imageIndex": 0
+      },
+      {
+        "name": "Oro Rosa",
+        "hex": "#B76E79",
         "imageIndex": 1
       }
     ],

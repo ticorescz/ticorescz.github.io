@@ -16,6 +16,7 @@
   const specs = document.getElementById('detail-specs');
   const colors = document.getElementById('detail-colors');
   const whatsapp = document.getElementById('detail-whatsapp');
+  const backLink = document.getElementById('detail-back');
   const apedidoNotice = document.getElementById('detail-apedido-notice');
   const btnProbador = document.getElementById('btn-probador');
   let selectedColor = null;
@@ -196,6 +197,10 @@
       } else {
         apedidoNotice.setAttribute('hidden', '');
       }
+    }
+
+    if (backLink) {
+      backLink.href = product.gender === 'mujer' ? 'mujer.html' : 'hombre.html';
     }
 
     if (description) description.textContent = product.description || '';
